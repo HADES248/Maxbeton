@@ -1,0 +1,60 @@
+
+{
+  "navbar": {
+    "home": "Inicio",
+    "products": "Productos",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "getQuote": "Obtener Cotización",
+    "language": "Idioma"
+  },
+   "footer": {
+    "description": "Proporcionando equipos de construcción de alta calidad para proyectos de todos los tamaños.",
+    "quickLinks": "Enlaces Rápidos",
+    "products": "Productos",
+    "media": "Medios",
+    "contactUs": "Contáctenos",
+    "privacyPolicy": "Política de Privacidad",
+    "termsOfService": "Términos de Servicio",
+    "allRightsReserved": "Todos los derechos reservados."
+  },
+  "home": {
+    "heroTitle": "Equipo de Construcción <1>de Primera Calidad</1>",
+    "heroSubtitle": "MaxBeton proporciona maquinaria fiable y potente para todas sus necesidades de construcción. Construido para durar, diseñado para rendir.",
+    "viewProducts": "Ver Productos",
+    "requestQuote": "Solicitar Cotización",
+    "trustedBy": "Con la confianza de <1>1000+</1> empresas constructoras",
+    "featuredEquipment": "Equipo Destacado",
+    "featuredDescription": "Descubra algunas de nuestras máquinas de construcción de mayor rendimiento.",
+    "viewDetails": "Ver Detalles",
+    "viewAllProducts": "Ver Todos los Productos",
+    "aboutTitle": "Acerca de MaxBeton Equipment",
+    "aboutText": "MaxBeton es su socio de confianza para equipos de construcción de alto rendimiento. Estamos comprometidos a proporcionar maquinaria duradera, servicio excepcional y soporte confiable para ayudarlo a completar sus proyectos de manera eficiente y segura.",
+    "yearsInIndustry": "Años en la Industria",
+    "equipmentModels": "Modelos de Equipos",
+    "supportAvailable": "Soporte Disponible",
+    "clientSatisfaction": "Satisfacción del Cliente",
+    "learnMore": "Conozca Más Sobre Nosotros",
+    "testimonialsTitle": "Con la Confianza de Líderes de la Industria",
+    "testimonialsSubtitle": "Escuche a los profesionales que confían en los equipos MaxBeton para sus proyectos críticos.",
+    "ctaTitle": "¿Necesita Equipos de Construcción Confiables?",
+    "ctaSubtitle": "Explore nuestra gama completa de productos o contacte a nuestro equipo de expertos hoy para una cotización y consulta personalizadas.",
+    "browseEquipment": "Explorar Equipos",
+    "contactSales": "Contactar Ventas"
+  },
+  "productDetail": {
+    "productNotFound": "Producto No Encontrado",
+    "productNotFoundDesc": "El producto que busca no existe.",
+    "backToProducts": "Volver a Productos",
+    "productVideos": "Vídeos del Producto",
+    "videoTitle": "Vídeo {{index}}",
+    "specifications": "Especificaciones Técnicas",
+    "sendEnquiry": "Enviar Consulta",
+    "downloadBrochure": "Descargar Folleto"
+  },
+  "media": {
+    "title": "Medios y Blog",
+    "description": "Últimas noticias, artículos y perspectivas de MaxBeton.",
+    "readMore": "Leer Más"
+  }
+}

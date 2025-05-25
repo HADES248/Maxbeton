@@ -1,0 +1,60 @@
+
+{
+  "navbar": {
+    "home": "首页",
+    "products": "产品",
+    "about": "关于我们",
+    "contact": "联系方式",
+    "getQuote": "获取报价",
+    "language": "语言"
+  },
+  "footer": {
+    "description": "为各种规模的项目提供高质量的建筑设备。",
+    "quickLinks": "快速链接",
+    "products": "产品",
+    "media": "媒体",
+    "contactUs": "联系我们",
+    "privacyPolicy": "隐私政策",
+    "termsOfService": "服务条款",
+    "allRightsReserved": "版权所有。"
+  },
+  "home": {
+    "heroTitle": "顶级品质<1>施工设备</1>",
+    "heroSubtitle": "MaxBeton 为您的所有施工需求提供可靠且功能强大的机械。经久耐用，性能卓越。",
+    "viewProducts": "查看产品",
+    "requestQuote": "请求报价",
+    "trustedBy": "受到 <1>1000+</1> 家建筑公司的信赖",
+    "featuredEquipment": "特色设备",
+    "featuredDescription": "了解我们一些性能最佳的施工机械。",
+    "viewDetails": "查看详情",
+    "viewAllProducts": "查看所有产品",
+    "aboutTitle": "关于 MaxBeton 设备",
+    "aboutText": "MaxBeton 是您值得信赖的高性能建筑设备合作伙伴。我们致力于提供耐用的机械、卓越的服务和可靠的支持，帮助您高效、安全地完成项目。",
+    "yearsInIndustry": "行业经验年限",
+    "equipmentModels": "设备型号",
+    "supportAvailable": "提供支持",
+    "clientSatisfaction": "客户满意度",
+    "learnMore": "了解更多关于我们",
+    "testimonialsTitle": "深受行业领导者的信赖",
+    "testimonialsSubtitle": "听听那些在关键项目上依赖 MaxBeton 设备的专业人士的意见。",
+    "ctaTitle": "需要可靠的施工设备吗？",
+    "ctaSubtitle": "浏览我们完整的产品系列，或立即联系我们的专家团队获取个性化报价和咨询。",
+    "browseEquipment": "浏览设备",
+    "contactSales": "联系销售"
+  },
+  "productDetail": {
+    "productNotFound": "未找到产品",
+    "productNotFoundDesc": "您查找的产品不存在。",
+    "backToProducts": "返回产品",
+    "productVideos": "产品视频",
+    "videoTitle": "视频 {{index}}",
+    "specifications": "技术规格",
+    "sendEnquiry": "发送询盘",
+    "downloadBrochure": "下载手册"
+  },
+  "media": {
+    "title": "媒体与博客",
+    "description": "来自 MaxBeton 的最新新闻、文章和见解。",
+    "readMore": "阅读更多"
+  }
+}

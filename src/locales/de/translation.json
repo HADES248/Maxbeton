@@ -1,0 +1,60 @@
+
+{
+  "navbar": {
+    "home": "Startseite",
+    "products": "Produkte",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "getQuote": "Angebot anfordern",
+    "language": "Sprache"
+  },
+  "footer": {
+    "description": "Bereitstellung hochwertiger Baumaschinen für Projekte jeder Größe.",
+    "quickLinks": "Schnell-Links",
+    "products": "Produkte",
+    "media": "Medien",
+    "contactUs": "Kontaktieren Sie uns",
+    "privacyPolicy": "Datenschutzrichtlinie",
+    "termsOfService": "Nutzungsbedingungen",
+    "allRightsReserved": "Alle Rechte vorbehalten."
+  },
+   "home": {
+    "heroTitle": "Hochwertige <1>Baumaschinen</1>",
+    "heroSubtitle": "MaxBeton liefert zuverlässige und leistungsstarke Maschinen für all Ihre Bauanforderungen. Langlebig gebaut, auf Leistung ausgelegt.",
+    "viewProducts": "Produkte ansehen",
+    "requestQuote": "Angebot anfordern",
+    "trustedBy": "Vertraut von <1>1000+</1> Baufirmen",
+    "featuredEquipment": "Ausgewählte Ausrüstung",
+    "featuredDescription": "Entdecken Sie einige unserer leistungsstärksten Baumaschinen.",
+    "viewDetails": "Details anzeigen",
+    "viewAllProducts": "Alle Produkte ansehen",
+    "aboutTitle": "Über MaxBeton Equipment",
+    "aboutText": "MaxBeton ist Ihr zuverlässiger Partner für Hochleistungs-Baumaschinen. Wir verpflichten uns, langlebige Maschinen, außergewöhnlichen Service und zuverlässigen Support zu bieten, um Ihnen zu helfen, Ihre Projekte effizient und sicher abzuschließen.",
+    "yearsInIndustry": "Jahre in der Branche",
+    "equipmentModels": "Ausrüstungsmodelle",
+    "supportAvailable": "Support verfügbar",
+    "clientSatisfaction": "Kundenzufriedenheit",
+    "learnMore": "Erfahren Sie mehr über uns",
+    "testimonialsTitle": "Vertraut von Branchenführern",
+    "testimonialsSubtitle": "Hören Sie von Fachleuten, die sich bei ihren kritischen Projekten auf MaxBeton-Ausrüstung verlassen.",
+    "ctaTitle": "Benötigen Sie zuverlässige Baumaschinen?",
+    "ctaSubtitle": "Entdecken Sie unser gesamtes Produktsortiment oder kontaktieren Sie noch heute unser Expertenteam für ein persönliches Angebot und eine Beratung.",
+    "browseEquipment": "Ausrüstung durchsuchen",
+    "contactSales": "Vertrieb kontaktieren"
+  },
+   "productDetail": {
+    "productNotFound": "Produkt nicht gefunden",
+    "productNotFoundDesc": "Das gesuchte Produkt existiert nicht.",
+    "backToProducts": "Zurück zu den Produkten",
+    "productVideos": "Produktvideos",
+    "videoTitle": "Video {{index}}",
+    "specifications": "Technische Daten",
+    "sendEnquiry": "Anfrage senden",
+    "downloadBrochure": "Broschüre herunterladen"
+  },
+  "media": {
+    "title": "Medien & Blog",
+    "description": "Neueste Nachrichten, Artikel und Einblicke von MaxBeton.",
+    "readMore": "Weiterlesen"
+  }
+}

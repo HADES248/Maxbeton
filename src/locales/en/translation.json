@@ -1,0 +1,60 @@
+
+{
+  "navbar": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About",
+    "contact": "Contact",
+    "getQuote": "Get Quote",
+    "language": "Language"
+  },
+  "footer": {
+    "description": "Providing high-quality construction equipment for projects of all sizes.",
+    "quickLinks": "Quick Links",
+    "products": "Products",
+    "media": "Media",
+    "contactUs": "Contact Us",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "allRightsReserved": "All rights reserved."
+  },
+  "home": {
+    "heroTitle": "Top Quality <1>Construction Equipment</1>",
+    "heroSubtitle": "MaxBeton provides reliable and powerful machinery for all your construction needs. Built to last, designed to perform.",
+    "viewProducts": "View Products",
+    "requestQuote": "Request Quote",
+    "trustedBy": "Trusted by <1>1000+</1> construction firms",
+    "featuredEquipment": "Featured Equipment",
+    "featuredDescription": "Discover some of our top-performing construction machinery.",
+    "viewDetails": "View Details",
+    "viewAllProducts": "View All Products",
+    "aboutTitle": "About MaxBeton Equipment",
+    "aboutText": "MaxBeton is your trusted partner for high-performance construction equipment. We are committed to providing durable machinery, exceptional service, and reliable support to help you complete your projects efficiently and safely.",
+    "yearsInIndustry": "Years in Industry",
+    "equipmentModels": "Equipment Models",
+    "supportAvailable": "Support Available",
+    "clientSatisfaction": "Client Satisfaction",
+    "learnMore": "Learn More About Us",
+    "testimonialsTitle": "Trusted by Industry Leaders",
+    "testimonialsSubtitle": "Hear from professionals who rely on MaxBeton equipment for their critical projects.",
+    "ctaTitle": "Need Reliable Construction Equipment?",
+    "ctaSubtitle": "Explore our full product range or contact our expert team today for a personalized quote and consultation.",
+    "browseEquipment": "Browse Equipment",
+    "contactSales": "Contact Sales"
+  },
+  "productDetail": {
+    "productNotFound": "Product Not Found",
+    "productNotFoundDesc": "The product you are looking for does not exist.",
+    "backToProducts": "Back to Products",
+    "productVideos": "Product Videos",
+    "videoTitle": "Video {{index}}",
+    "specifications": "Technical Specifications",
+    "sendEnquiry": "Send Enquiry",
+    "downloadBrochure": "Download Brochure"
+  },
+  "media": {
+    "title": "Media & Blog",
+    "description": "Latest news, articles, and insights from MaxBeton.",
+    "readMore": "Read More"
+  }
+}
