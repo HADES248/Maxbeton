@@ -57,7 +57,7 @@ const EnquiryModal = ({ productName, children }) => {
       <DialogTrigger asChild>
         {children}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px] border-none bg-white">
         <DialogHeader>
           <DialogTitle>Enquire about {productName}</DialogTitle>
           <DialogDescription>
@@ -120,10 +120,10 @@ const EnquiryModal = ({ productName, children }) => {
             </div>
           </div>
           <DialogFooter>
-             <DialogClose asChild>
-               <Button type="button" variant="secondary">Cancel</Button>
-             </DialogClose>
-            <Button type="submit" disabled={isSubmitting}>
+            <DialogClose asChild>
+              <Button type="button" className="cursor-pointer" variant="secondary">Cancel</Button>
+            </DialogClose>
+            <Button type="submit" disabled={isSubmitting} className="text-white cursor-pointer">
               {isSubmitting ? 'Sending...' : 'Send Enquiry'}
             </Button>
           </DialogFooter>

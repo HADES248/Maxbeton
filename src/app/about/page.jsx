@@ -2,7 +2,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Users, Target, Award, Clock } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 //import { metadata } from '../layout';
 
 // export const metadata = {
@@ -14,7 +13,6 @@ import { useTranslation } from 'react-i18next';
 // };
 
 const AboutPage = () => {
-  const { t } = useTranslation();
 
   const teamMembers = [
     { name: 'Alex Johnson', position: 'CEO & Founder', image: 'Professional portrait of company CEO' },
@@ -90,6 +88,57 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
+
+      <section className="py-20 bg-gray-50">
+         <div className="container mx-auto px-4">
+           <motion.div
+             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
+             className="text-center mb-16"
+           >
+             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Journey</h2>
+             <p className="text-lg text-gray-600 max-w-3xl mx-auto">A brief look at key milestones in MaxBeton's history.</p>
+           </motion.div>
+
+           <div className="relative max-w-4xl mx-auto">
+             {/* Timeline Line */}
+             <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-blue-200 transform -translate-x-1/2 hidden md:block"></div>
+
+             {/* Timeline Items */}
+             {[
+               { year: "2008", title: "Foundation", description: "MaxBeton founded with a vision to provide superior construction equipment." },
+               { year: "2012", title: "First Excavator Line", description: "Launched our flagship excavator series, setting new industry standards." },
+               { year: "2016", title: "Expansion", description: "Opened our second manufacturing facility and expanded into international markets." },
+               { year: "2020", title: "Innovation Award", description: "Received industry recognition for advancements in sustainable machinery." },
+               { year: "2024", title: "Digital Integration", description: "Introduced advanced telematics and support systems across our product range." },
+             ].map((item, index) => (
+               <motion.div
+                 key={item.year}
+                 initial={{ opacity: 0, y: 50 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true }}
+                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                 className={`mb-12 flex md:items-center w-full ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} md:justify-between`}
+               >
+                 <div className="hidden md:block w-5/12"></div> {/* Spacer */}
+                 {/* Circle */}
+                 <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 hidden md:block">
+                     <div className="w-4 h-4 bg-primary rounded-full border-2 border-white"></div>
+                 </div>
+                  {/* Mobile Line & Circle */}
+                   <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-blue-200 md:hidden ml-2"></div>
+                    <div className="absolute left-0 top-1/2 w-4 h-4 bg-primary rounded-full border-2 border-white transform -translate-x-1/2 -translate-y-1/2 z-10 md:hidden ml-2"></div>
+
+                 {/* Content */}
+                 <div className="w-full md:w-5/12 bg-white p-6 rounded-lg shadow-lg border border-gray-100 ml-8 md:ml-0">
+                   <span className="text-sm font-semibold text-primary mb-1 block">{item.year}</span>
+                   <h4 className="text-lg font-bold mb-2">{item.title}</h4>
+                   <p className="text-gray-600 text-sm">{item.description}</p>
+                 </div>
+               </motion.div>
+             ))}
+           </div>
+         </div>
+       </section>
 
       {/* Team Section */}
       <section className="py-20">

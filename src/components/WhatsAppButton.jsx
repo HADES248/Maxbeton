@@ -1,11 +1,10 @@
-
+'use client'
 import React from 'react';
-import config from '@/config';
 import { MessageSquare as MessageSquareText } from 'lucide-react'; // Using a similar icon
 import { motion } from 'framer-motion';
 
 const WhatsAppButton = () => {
-  const whatsappUrl = `https://wa.me/${config.whatsappNumber}`;
+  const whatsappUrl = `https://wa.me/919650441666`;
 
   return (
     <motion.a

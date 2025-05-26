@@ -5,11 +5,9 @@ import { motion } from 'framer-motion';
 import products from './products';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Grid, List } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
 
 const ProductsPage = () => {
-  const { t } = useTranslation();
   const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
 
   return (
@@ -74,9 +72,8 @@ const ProductsPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex ${
-                  viewMode === 'grid' ? 'flex-col' : 'flex-row'
-                }`}
+                className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex ${viewMode === 'grid' ? 'flex-col' : 'flex-row'
+                  }`}
               >
                 <div className={viewMode === 'grid' ? 'h-60' : 'h-48 w-64'}>
                   <img className="w-full h-full object-cover" alt={product.images[0].alt} src={product.images[0].url} />
@@ -86,7 +83,7 @@ const ProductsPage = () => {
                   <p className="text-gray-600 text-sm mb-4 flex-grow">
                     {viewMode === 'grid' ? `${product.description.substring(0, 100)}...` : product.description}
                   </p>
-                  <Link href={`/products/${product.id}`}>
+                  <Link href={`/${product.id}`}>
                     <Button className="w-full mt-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 group text-white">
                       View Details
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />

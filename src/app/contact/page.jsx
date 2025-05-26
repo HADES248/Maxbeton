@@ -71,15 +71,15 @@ const ContactPage = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 {['name', 'email', 'phone', 'company'].map((field) => (
                   <div key={field}>
-                    <Label htmlFor={field}>{field.charAt(0).toUpperCase() + field.slice(1)}{field === 'name' || field === 'email' ? ' *' : ''}</Label>
-                    <Input id={field} name={field} value={formData[field]} onChange={handleChange} required={field === 'name' || field === 'email'} />
+                    <Label className="text-gray-700" htmlFor={field}>{field.charAt(0).toUpperCase() + field.slice(1)}{field === 'name' || field === 'email' ? ' *' : ''}</Label>
+                    <Input id={field} name={field} value={formData[field]} onChange={handleChange} required={field === 'name' || field === 'email'} className="border-gray-300" />
                   </div>
                 ))}
               </div>
 
               <div className="mb-6">
-                <Label htmlFor="subject">Subject</Label>
-                <select id="subject" name="subject" value={formData.subject} onChange={handleChange} className="w-full h-10 rounded-md border px-4 text-sm">
+                <Label className="text-gray-700" htmlFor="subject">Subject</Label>
+                <select id="subject" name="subject" value={formData.subject} onChange={handleChange} className="w-full h-10 rounded-md border px-4 text-sm border-gray-300">
                   {['General Inquiry', 'Quote Request', 'Product Information', 'Support Request', 'Partnership', 'Other'].map((option) => (
                     <option key={option} value={option}>{option}</option>
                   ))}
@@ -87,8 +87,8 @@ const ContactPage = () => {
               </div>
 
               <div className="mb-6">
-                <Label htmlFor="message">Your Message *</Label>
-                <textarea id="message" name="message" value={formData.message} onChange={handleChange} required rows={5} className="w-full px-4 py-2 border rounded-md text-sm" />
+                <Label className="text-gray-700" htmlFor="message">Your Message *</Label>
+                <textarea id="message" name="message" value={formData.message} onChange={handleChange} required rows={5} className="w-full px-4 py-2 border rounded-md text-sm border-gray-300" />
               </div>
 
               <Button type="submit" className="w-full text-white" disabled={isSubmitting}>
@@ -105,7 +105,7 @@ const ContactPage = () => {
               { icon: Phone, title: 'Phone', value: phone, href: `tel:${phone}` },
               { icon: Mail, title: 'Email', value: email, href: `mailto:${email}` },
               { icon: Clock, title: 'Business Hours', value: 'Mon-Sat: 10:00 AM - 7:00 PM\nSunday: Closed' }].map(({ icon: Icon, title, value, href }) => (
-                <div key={title} className="flex items-start space-x-4 mb-6">
+                <div key={title} className="flex items-start space-x-4 mb-2">
                   <Icon className="h-6 w-6 mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold">{title}</h3>
