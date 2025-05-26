@@ -91,7 +91,7 @@ const ContactPage = () => {
                 <textarea id="message" name="message" value={formData.message} onChange={handleChange} required rows={5} className="w-full px-4 py-2 border rounded-md text-sm" />
               </div>
 
-              <Button type="submit" className="w-full" disabled={isSubmitting}>
+              <Button type="submit" className="w-full text-white" disabled={isSubmitting}>
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>
             </form>
@@ -100,7 +100,7 @@ const ContactPage = () => {
           {/* Contact Info */}
           <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }}>
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl shadow-lg p-8 mb-8">
-              <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
+              <h2 className="text-2xl font-bold mb-2">Contact Information</h2>
               {[{ icon: MapPin, title: 'Address', value: address, href: googleMapsUrl },
               { icon: Phone, title: 'Phone', value: phone, href: `tel:${phone}` },
               { icon: Mail, title: 'Email', value: email, href: `mailto:${email}` },
@@ -114,6 +114,22 @@ const ContactPage = () => {
                 </div>
               ))}
             </div>
+            {/* Consider making FAQ content dynamic or translatable */}
+              <div className="bg-white rounded-xl shadow-lg p-8">
+                <h2 className="text-lg font-bold mb-6">Frequently Asked Questions</h2>
+                <div className="space-y-6">
+                  {[
+                    { question: "Do you offer equipment financing?", answer: "Yes, we partner with several financial institutions to offer flexible financing options. Please contact our sales team for details." },
+                    { question: "What is the warranty on your equipment?", answer: "Our new equipment comes with a standard manufacturer's warranty. Specific terms vary by product. Used equipment warranty options are also available." },
+                    { question: "Do you provide operator training?", answer: "Yes, we offer comprehensive operator training programs for most of the equipment we sell to ensure safe and efficient operation." }
+                  ].map((faq, index) => (
+                    <div key={index}>
+                      <h3 className="font-semibold text-md mb-2">{faq.question}</h3>
+                      <p className="text-gray-600">{faq.answer}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
           </motion.div>
         </div>
       </section>

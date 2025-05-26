@@ -56,7 +56,7 @@ const MobileMenu = ({ isOpen, setIsOpen, navItems, productsData, isActive, t }) 
               ) : (
                 <Link
                   key={item.path}
-                  to={item.path}
+                  href={item.path}
                   className={`block px-4 py-2 rounded-md font-medium ${
                     isActive(item.path)
                       ? 'bg-primary/10 text-primary'
@@ -69,9 +69,9 @@ const MobileMenu = ({ isOpen, setIsOpen, navItems, productsData, isActive, t }) 
               )
             )}
             <div className="px-4 pt-2">
-              <Link to="/contact">
-                <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300">
-                  {t('navbar.getQuote')}
+              <Link href="/contact">
+                <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 text-white">
+                  Get Quote
                 </Button>
               </Link>
             </div>

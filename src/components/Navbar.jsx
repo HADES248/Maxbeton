@@ -5,7 +5,9 @@ import { usePathname } from 'next/navigation'; // Updated import
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import LanguageSwitcher from '@/components/navbar/LanguageSwitcher';
+
+//import LanguageSwitcher from '@/components/navbar/LanguageSwitcher';
+
 import MobileMenu from '@/components/navbar/MobileMenu';
 import Logo from '@/components/navbar/Logo';
 import NavLinks from '@/components/navbar/NavLinks';
@@ -13,22 +15,23 @@ import NavLinks from '@/components/navbar/NavLinks';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname(); // Correct way to get the current path
-  const { t } = useTranslation();
-  
+
+  //const { t } = useTranslation();
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   const navItemsConfig = [
-    { nameKey: 'navbar.home', path: '/' },
-    { nameKey: 'navbar.products', path: '/products' },
-    { nameKey: 'navbar.about', path: '/about' },
-    { nameKey: 'navbar.contact', path: '/contact' },
+    { nameKey: 'Home', path: '/' },
+    { nameKey: 'Products', path: '/products' },
+    { nameKey: 'About', path: '/about' },
+    { nameKey: 'Contact', path: '/contact' },
   ];
 
   const navItems = navItemsConfig.map(item => ({
     ...item,
-    name: t(item.nameKey),
+    name: item.nameKey,
   }));
 
   const isActive = (path) => {
@@ -37,27 +40,26 @@ const Navbar = () => {
     }
     return pathname === path;
   };
-  
+
   return (
     <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <Logo />
-
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             <NavLinks navItems={navItems} isActive={isActive} motionLayoutIdPrefix="navbar-indicator-desktop" />
-            <LanguageSwitcher t={t} />
+            {/* <LanguageSwitcher t={t} /> */}
             <Link href="/contact">
-              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300">
-                {t('navbar.getQuote')}
+              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 text-white">
+                Get Quote
               </Button>
             </Link>
           </div>
 
           {/* Mobile Navigation */}
           <div className="md:hidden flex items-center gap-2">
-            <LanguageSwitcher t={t} isMobile={true} />
+            {/* <LanguageSwitcher t={t} isMobile={true} /> */}
             <Button variant="ghost" size="icon" onClick={toggleMenu}>
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </Button>
@@ -65,7 +67,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} navItems={navItems} isActive={isActive} t={t} />
+      <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} navItems={navItems} isActive={isActive} />
     </nav>
   );
 };

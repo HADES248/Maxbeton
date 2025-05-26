@@ -29,39 +29,39 @@ const AboutPreviewSection = ({ imageSrc }) => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">{t('home.aboutTitle')}</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">About MaxBeton Equipment</h2>
             <p className="text-lg text-gray-600 mb-6">
-               {t('home.aboutText')}
+               MaxBeton is your trusted partner for high-performance construction equipment. We are committed to providing durable machinery, exceptional service, and reliable support to help you complete your projects efficiently and safely.
             </p>
             <div className="grid grid-cols-2 gap-6 mb-8">
               <div className="flex items-center space-x-3">
                 <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
                   <span className="text-blue-600 font-bold text-xl">15+</span>
                 </div>
-                <span className="font-medium">{t('home.yearsInIndustry')}</span>
+                <span className="font-medium">Years In Industry</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
                   <span className="text-purple-600 font-bold text-xl">50+</span>
                 </div>
-                <span className="font-medium">{t('home.equipmentModels')}</span>
+                <span className="font-medium">Equipment Models</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center">
                   <span className="text-indigo-600 font-bold text-xl">24/7</span>
                 </div>
-                <span className="font-medium">{t('home.supportAvailable')}</span>
+                <span className="font-medium">Support Available</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
                   <span className="text-blue-600 font-bold text-xl">98%</span>
                 </div>
-                <span className="font-medium">{t('home.clientSatisfaction')}</span>
+                <span className="font-medium">Client Satisfaction</span>
               </div>
             </div>
             <Link href="/about">
-              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300">
-                 {t('home.learnMore')}
+              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 text-white">
+                 Learn More About Us
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>

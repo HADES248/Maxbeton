@@ -38,12 +38,12 @@ const LanguageSwitcher = ({ t, isMobile = false, setIsOpenMobileMenu }) => {
       <DropdownMenuTrigger asChild>
         <Button variant={isMobile ? "ghost" : "outline"} size={isMobile ? "default" : "sm"} className={isMobile ? "w-full justify-start" : ""}>
           <Languages className="mr-2 h-4 w-4" />
-          {languages.find(l => l.code === currentLanguage)?.name || t('navbar.language')}
+          {languages.find(l => l.code === currentLanguage)?.name || "Language"}
           {!isMobile && <ChevronDown className="ml-2 h-4 w-4" />}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align={isMobile ? "start" : "end"}>
-        <DropdownMenuLabel>{t('navbar.language')}</DropdownMenuLabel>
+        <DropdownMenuLabel>Language</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuRadioGroup value={currentLanguage} onValueChange={changeLanguage}>
           {languages.map((lang) => (

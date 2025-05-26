@@ -50,7 +50,7 @@ const Footer = () => {
 
           {/* Products Column 1 */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">{t('footer.products')}</h3>
+            <h3 className="text-lg font-semibold mb-4">Products</h3>
             <ul className="space-y-2">
               {firstColumnProducts.map((product) => (
                 <li key={product.id}>
@@ -78,7 +78,7 @@ const Footer = () => {
 
           {/* Contact Section */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">{t('footer.contactUs')}</h3>
+            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
                 <a href={googleMapsUrl} className="text-primary mt-1 flex-shrink-0">
@@ -105,7 +105,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-200 mt-12 pt-8 text-center text-gray-500">
-          <p>&copy; {currentYear} MaxBeton. {t('footer.allRightsReserved')}</p>
+          <p>&copy; {currentYear} MaxBeton. All rights reserved.</p>
         </div>
       </div>
     </footer>
