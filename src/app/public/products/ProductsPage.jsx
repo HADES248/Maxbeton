@@ -10,6 +10,8 @@ import Link from 'next/link';
 const ProductsPage = () => {
   const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
 
+  // API call for all products
+
   return (
     <div>
       {/* Hero Section */}
@@ -83,7 +85,7 @@ const ProductsPage = () => {
                   <p className="text-gray-600 text-sm mb-4 flex-grow">
                     {viewMode === 'grid' ? `${product.description.substring(0, 100)}...` : product.description}
                   </p>
-                  <Link href={`/${product.id}`}>
+                  <Link href={`/public/${product.id}`}>
                     <Button className="w-full mt-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 group text-white">
                       View Details
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />

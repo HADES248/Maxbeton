@@ -23,10 +23,10 @@ const Navbar = () => {
   };
 
   const navItemsConfig = [
-    { nameKey: 'Home', path: '/' },
-    { nameKey: 'Products', path: '/products' },
-    { nameKey: 'About', path: '/about' },
-    { nameKey: 'Contact', path: '/contact' },
+    { nameKey: 'Home', path: '/public/' },
+    { nameKey: 'Products', path: '/public/products' },
+    { nameKey: 'About', path: '/public/about' },
+    { nameKey: 'Contact', path: '/public/contact' },
   ];
 
   const navItems = navItemsConfig.map(item => ({
@@ -35,8 +35,8 @@ const Navbar = () => {
   }));
 
   const isActive = (path) => {
-    if (path === '/products') {
-      return pathname.startsWith('/products');
+    if (path === 'public/products') {
+      return pathname.startsWith('public/products');
     }
     return pathname === path;
   };
@@ -50,8 +50,8 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             <NavLinks navItems={navItems} isActive={isActive} motionLayoutIdPrefix="navbar-indicator-desktop" />
             {/* <LanguageSwitcher t={t} /> */}
-            <Link href="/contact">
-              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 text-white">
+            <Link href="/public/contact">
+              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 text-white cursor-pointer">
                 Get Quote
               </Button>
             </Link>

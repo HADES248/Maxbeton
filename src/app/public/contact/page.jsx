@@ -1,5 +1,4 @@
 'use client';
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -115,21 +114,21 @@ const ContactPage = () => {
               ))}
             </div>
             {/* Consider making FAQ content dynamic or translatable */}
-              <div className="bg-white rounded-xl shadow-lg p-8">
-                <h2 className="text-lg font-bold mb-6">Frequently Asked Questions</h2>
-                <div className="space-y-6">
-                  {[
-                    { question: "Do you offer equipment financing?", answer: "Yes, we partner with several financial institutions to offer flexible financing options. Please contact our sales team for details." },
-                    { question: "What is the warranty on your equipment?", answer: "Our new equipment comes with a standard manufacturer's warranty. Specific terms vary by product. Used equipment warranty options are also available." },
-                    { question: "Do you provide operator training?", answer: "Yes, we offer comprehensive operator training programs for most of the equipment we sell to ensure safe and efficient operation." }
-                  ].map((faq, index) => (
-                    <div key={index}>
-                      <h3 className="font-semibold text-md mb-2">{faq.question}</h3>
-                      <p className="text-gray-600">{faq.answer}</p>
-                    </div>
-                  ))}
-                </div>
+            <div className="bg-white rounded-xl shadow-lg p-8">
+              <h2 className="text-lg font-bold mb-6">Frequently Asked Questions</h2>
+              <div className="space-y-6">
+                {[
+                  { question: "Do you offer equipment financing?", answer: "Yes, we partner with several financial institutions to offer flexible financing options. Please contact our sales team for details." },
+                  { question: "What is the warranty on your equipment?", answer: "Our new equipment comes with a standard manufacturer's warranty. Specific terms vary by product. Used equipment warranty options are also available." },
+                  { question: "Do you provide operator training?", answer: "Yes, we offer comprehensive operator training programs for most of the equipment we sell to ensure safe and efficient operation." }
+                ].map((faq, index) => (
+                  <div key={index}>
+                    <h3 className="font-semibold text-md mb-2">{faq.question}</h3>
+                    <p className="text-gray-600">{faq.answer}</p>
+                  </div>
+                ))}
               </div>
+            </div>
           </motion.div>
         </div>
       </section>

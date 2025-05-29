@@ -1,7 +1,7 @@
 'use client';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import products from '../products/products';
 import { Button } from '@/components/ui/button';
@@ -13,6 +13,11 @@ import Link from 'next/link';
 export default function ProductDetailPage() {
   const route = useParams();
   const productId = route.id;
+
+  //API call for single product
+
+
+
   const product = products.find((p) => p.id === productId);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -21,11 +26,11 @@ export default function ProductDetailPage() {
     return (
       <div className="container mx-auto px-4 py-20 text-center">
         <Head>
-          <title>{t('productDetail.productNotFound')} - MaxBeton</title>
+          <title>Product Not Found - MaxBeton</title>
         </Head>
         <h1 className="text-3xl font-bold mb-4">Product Not Found</h1>
         <p className="text-gray-600 mb-8">The product you are looking for does not exist.</p>
-        <Link href="/products">
+        <Link href="/public/products">
           <Button variant="outline">
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Products
           </Button>
@@ -55,7 +60,7 @@ export default function ProductDetailPage() {
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }}>
         <div className="mb-8">
-          <Link href="/products">
+          <Link href="/public/products">
             <Button variant="outline" className="group">
               <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
               Back to Products

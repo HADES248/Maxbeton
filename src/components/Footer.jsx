@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
-import productsData from '../app/products/products';
+import productsData from '../app/public/products/products';
 import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
@@ -103,7 +103,6 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-
         <div className="border-t border-gray-200 mt-12 pt-8 text-center text-gray-500">
           <p>&copy; {currentYear} MaxBeton. All rights reserved.</p>
         </div>
