@@ -2,8 +2,7 @@
 import React from 'react';
 import ServiceCard from '@/components/services/ServiceCard';
 import {
-  BarChart2, TrendingUp, Users, Lightbulb, Shield, Award,
-  PieChart, Globe, Zap
+  BarChart2, TrendingUp, Users, Lightbulb, Shield, Award
 } from 'lucide-react';
 
 const ServicesOverview = () => {

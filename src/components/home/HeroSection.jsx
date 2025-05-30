@@ -2,12 +2,9 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { useTranslation, Trans } from 'react-i18next'; // Import Trans
 import Link from 'next/link';
 
 const HeroSection = () => {
-  const { t } = useTranslation();
-
   return (
     <section className="relative py-20 md:py-28 overflow-hidden">
       <div className="hero-pattern absolute inset-0 opacity-30"></div>
@@ -47,9 +44,7 @@ const HeroSection = () => {
               </div>
               <div>
                 <p className="text-sm text-gray-600">
-                  <Trans i18nKey="home.trustedBy">
-                    Trusted by <span className="font-semibold text-gray-900">1000+</span> construction firms
-                  </Trans>
+                  Trusted by <span className="font-semibold text-gray-900">1000+</span> construction firms
                 </p>
               </div>
             </div>

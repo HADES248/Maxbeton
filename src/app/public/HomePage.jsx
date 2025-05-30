@@ -6,19 +6,16 @@ import FeaturedEquipmentSection from '@/components/home/FeaturedEquipmentSection
 import AboutPreviewSection from '@/components/home/AboutPreviewSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import CtaSection from '@/components/home/CtaSection';
-import { useTranslation } from 'react-i18next';
 import { ProductContext } from '@/hooks/products';
-//import products from './products/products';
 
-export const metadata = {
-  title: 'MaxBeton - Quality Construction Equipment',
-  description: 'Explore high-quality construction equipment including excavators, bulldozers, loaders, and cranes.',
-  keywords:
-    'construction equipment, heavy machinery, excavator, bulldozer, loader, crane, maxbeton, heracles h130, tracked dumper, electric wheelbarrow',
-};
+// export const metadata = {
+//   title: 'MaxBeton - Quality Construction Equipment',
+//   description: 'Explore high-quality construction equipment including excavators, bulldozers, loaders, and cranes.',
+//   keywords:
+//     'construction equipment, heavy machinery, excavator, bulldozer, loader, crane, maxbeton, heracles h130, tracked dumper, electric wheelbarrow',
+// };
 
 const HomePage = () => {
-  const { t } = useTranslation();
   const [loading, setLoading] = useState(true);
   const { products, setProducts } = useContext(ProductContext);
 

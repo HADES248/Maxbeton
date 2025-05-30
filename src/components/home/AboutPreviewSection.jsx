@@ -3,11 +3,9 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
 
 const AboutPreviewSection = ({ imageSrc }) => {
-  const { t } = useTranslation();
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">

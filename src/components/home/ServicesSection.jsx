@@ -3,11 +3,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Truck, Layers, HardHat } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
 
 const ServicesSection = ({ products }) => {
-  const { t } = useTranslation();
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -38,9 +36,9 @@ const ServicesSection = ({ products }) => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('home.featuredEquipment')}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Equipment</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            {t('home.featuredDescription')}
+            Featured Description
           </p>
         </motion.div>
 
@@ -62,7 +60,7 @@ const ServicesSection = ({ products }) => {
               <p className="text-gray-600 mb-6 flex-grow">{product.description.substring(0, 120)}...</p>
               <Link href={`/products/${product.id}`} className="mt-auto">
                 <Button variant="outline" className="w-full group">
-                  {t('home.viewDetails')}
+                  View Details
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>
@@ -72,7 +70,7 @@ const ServicesSection = ({ products }) => {
          <div className="text-center mt-16">
            <Link href="/products">
              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300">
-               {t('home.viewAllProducts')}
+               View All Products
              </Button>
            </Link>
          </div>

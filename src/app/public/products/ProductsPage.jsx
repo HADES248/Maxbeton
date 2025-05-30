@@ -66,8 +66,8 @@ const ProductsPage = () => {
       </section>
 
       {/* View Toggle & Products Grid */}
-      <section className="py-20">
-        <div className="mr-4 ml-4 mx-auto">
+      <section className="py-20 flex justify-center items-center">
+        <div className="container mr-4 ml-4 mx-auto">
           <div className="flex justify-end mb-8">
             <div className="bg-gray-100 rounded-lg p-1">
               <Button

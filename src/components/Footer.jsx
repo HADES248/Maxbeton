@@ -1,14 +1,11 @@
 'use client';
-
 import React, { useContext, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 import { ProductContext } from '@/hooks/products';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const { t } = useTranslation();
   const { products, setProducts } = useContext(ProductContext);
   const [loading, setLoading] = useState(true);
 

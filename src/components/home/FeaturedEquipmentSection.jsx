@@ -3,11 +3,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Truck, Layers, HardHat } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
 
 const FeaturedEquipmentSection = ({ products }) => {
-  const { t } = useTranslation();
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
