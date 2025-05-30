@@ -1,9 +1,8 @@
 'use client';
 import { useParams } from 'next/navigation';
 import Head from 'next/head';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import products from '../products/products';
 import { Button } from '@/components/ui/button';
 import EnquiryModal from '@/components/EnquiryModal';
 import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table';
@@ -13,14 +12,49 @@ import Link from 'next/link';
 export default function ProductDetailPage() {
   const route = useParams();
   const productId = route.id;
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  //API call for single product
+  // API call for single product
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const response = await fetch("/public/api/products", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ id: productId }),
+        });
 
+        if (response.ok) {
+          const data = await response.json();
+          setProduct(data.product);
+        } else {
+          console.error("Failed to Fetch Product");
+        }
+      } catch (err) {
+        console.error("Failed to Fetch Product", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    getProduct();
+  }, [productId]);
 
-
-  const product = products.find((p) => p.id === productId);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+
+  if (loading) {
+    return (
+      <div className="container mx-auto px-4 py-20 text-center">
+        <Head>
+          <title>Loading Product - MaxBeton</title>
+        </Head>
+        <h1 className="text-3xl font-bold mb-4">Loading product...</h1>
+      </div>
+    );
+  }
 
   if (!product) {
     return (
@@ -79,8 +113,8 @@ export default function ProductDetailPage() {
               <AnimatePresence initial={false}>
                 <motion.img
                   key={currentImageIndex}
-                  src={product.images[currentImageIndex].url}
-                  alt={product.images[currentImageIndex].alt}
+                  src={product.images[currentImageIndex]?.url}
+                  alt={product.images[currentImageIndex]?.alt}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -118,8 +152,7 @@ export default function ProductDetailPage() {
                   <button
                     key={index}
                     onClick={() => setCurrentImageIndex(index)}
-                    className={`w-16 h-16 rounded-md overflow-hidden border-2 flex-shrink-0 ${currentImageIndex === index ? 'border-primary' : 'border-transparent'
-                      } transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2`}
+                    className={`w-16 h-16 rounded-md overflow-hidden border-2 flex-shrink-0 ${currentImageIndex === index ? 'border-primary' : 'border-transparent'} transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2`}
                     aria-label={`View image ${index + 1}`}
                   >
                     <img
@@ -157,7 +190,7 @@ export default function ProductDetailPage() {
                         size="sm"
                         onClick={() => setCurrentVideoIndex(index)}
                       >
-                        {video.title || t('productDetail.videoTitle', { index: index + 1 })}
+                        {video.title || `Video ${index + 1}`}
                       </Button>
                     ))}
                   </div>

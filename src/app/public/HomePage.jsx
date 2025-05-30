@@ -1,13 +1,14 @@
 'use client';
 
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import HeroSection from '@/components/home/HeroSection';
 import FeaturedEquipmentSection from '@/components/home/FeaturedEquipmentSection';
 import AboutPreviewSection from '@/components/home/AboutPreviewSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import CtaSection from '@/components/home/CtaSection';
 import { useTranslation } from 'react-i18next';
-import products from './products/products';
+import { ProductContext } from '@/hooks/products';
+//import products from './products/products';
 
 export const metadata = {
   title: 'MaxBeton - Quality Construction Equipment',
@@ -18,6 +19,35 @@ export const metadata = {
 
 const HomePage = () => {
   const { t } = useTranslation();
+  const [loading, setLoading] = useState(true);
+  const { products, setProducts } = useContext(ProductContext);
+
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const response = await fetch("/public/api/products", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setProducts(data.products);
+        } else {
+          console.error("Failed to fetch data");
+        }
+      } catch (err) {
+        console.error("Failed to fetch data", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getProducts();
+  }, []);
 
   const featuredProductIds = ['heracles-h130', '1-ton-tracked-dumper', 'electric-wheelbarrow'];
   const featuredProducts = products.filter((p) => featuredProductIds.includes(p.id));
@@ -28,8 +58,13 @@ const HomePage = () => {
   return (
     <div>
       <HeroSection />
-      <FeaturedEquipmentSection products={featuredProducts.length > 0 ? featuredProducts : products.slice(0, 3)} />
-      <AboutPreviewSection imageSrc={aboutPreviewImage} />
+      {!loading && (
+        <>
+          <FeaturedEquipmentSection products={featuredProducts.length > 0 ? featuredProducts : products.slice(0, 3)}
+          />
+          <AboutPreviewSection imageSrc={aboutPreviewImage} />
+        </>
+      )}
       <TestimonialsSection />
       <CtaSection />
     </div>

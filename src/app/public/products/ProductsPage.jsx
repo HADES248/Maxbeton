@@ -1,16 +1,14 @@
 'use client';
-
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import products from './products';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Grid, List } from 'lucide-react';
 import Link from 'next/link';
+import { ProductContext } from '@/hooks/products';
 
 const ProductsPage = () => {
   const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
-
-  // API call for all products
+  const { products } = useContext(ProductContext);
 
   return (
     <div>
@@ -40,7 +38,7 @@ const ProductsPage = () => {
 
       {/* View Toggle & Products Grid */}
       <section className="py-20">
-        <div className="container mx-auto px-4">
+        <div className="mr-4 ml-4 mx-auto">
           <div className="flex justify-end mb-8">
             <div className="bg-gray-100 rounded-lg p-1">
               <Button
@@ -66,7 +64,7 @@ const ProductsPage = () => {
           <motion.div
             initial="initial"
             animate="animate"
-            className={viewMode === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8' : 'space-y-6'}
+            className={viewMode === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6' : 'space-y-6'}
           >
             {products.map((product) => (
               <motion.div
@@ -74,10 +72,9 @@ const ProductsPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex ${viewMode === 'grid' ? 'flex-col' : 'flex-row'
-                  }`}
+                className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex w-full ${viewMode === 'grid' ? 'flex-col' : 'flex-row'}`}
               >
-                <div className={viewMode === 'grid' ? 'h-60' : 'h-48 w-64'}>
+                <div className={viewMode === 'grid' ? 'h-60' : 'h-48 w-full'}>
                   <img className="w-full h-full object-cover" alt={product.images[0].alt} src={product.images[0].url} />
                 </div>
                 <div className={`p-6 flex flex-col flex-grow ${viewMode === 'list' ? 'flex-1' : ''}`}>

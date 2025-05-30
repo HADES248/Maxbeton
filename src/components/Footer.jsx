@@ -1,24 +1,26 @@
 'use client';
 
-import React from 'react';
+import React, { useContext } from 'react';
 import Link from 'next/link';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
-import productsData from '../app/public/products/products';
 import { useTranslation } from 'react-i18next';
+import { ProductContext } from '@/hooks/products';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const { t } = useTranslation();
+  const { products } = useContext(ProductContext);
+
 
   const address = 'C-159, Naraina Industrial Area Phase I, New Delhi - 110028, India';
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
   const phone = '+91-96504 41666';
   const email = 'info@maxbeton.in';
 
-  // Split products into two columns
-  const midPoint = Math.ceil(productsData.length / 2);
-  const firstColumnProducts = productsData.slice(0, midPoint);
-  const secondColumnProducts = productsData.slice(midPoint);
+  //Split products into two columns
+   const midPoint = Math.ceil(products.length / 2);
+   const firstColumnProducts = products.slice(0, midPoint);
+   const secondColumnProducts = products.slice(midPoint);
 
   return (
     <footer className="bg-gray-50 pt-16 pb-8">

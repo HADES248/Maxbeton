@@ -6,15 +6,15 @@ export async function connectToDb() {
   if (isConnected) {
     console.log("Already connected");
     return;
-  } else {
-    try {
-      mongoose.connect(process.env.MongoURI).then(() => {
-        isConnected = true;
-        console.log("connected to Db");
-      })
-    } catch (error) {
-      console.log("Error connecting to Db", error);
-    }
+  }
 
+  try {
+    await mongoose.connect(process.env.MONGO_URI, {
+      dbName: 'maxbeton'
+    });
+    isConnected = true;
+    console.log("Connected to DB");
+  } catch (error) {
+    console.error("Error connecting to DB:", error);
   }
 }
