@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -9,7 +9,34 @@ import { ProductContext } from '@/hooks/products';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const { t } = useTranslation();
-  const { products } = useContext(ProductContext);
+  const { products, setProducts } = useContext(ProductContext);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const response = await fetch("/public/api/products", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setProducts(data.products);
+        } else {
+          console.error("Failed to fetch data");
+        }
+      } catch (err) {
+        console.error("Failed to fetch data", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getProducts();
+  }, []);
 
 
   const address = 'C-159, Naraina Industrial Area Phase I, New Delhi - 110028, India';
@@ -18,9 +45,9 @@ const Footer = () => {
   const email = 'info@maxbeton.in';
 
   //Split products into two columns
-   const midPoint = Math.ceil(products.length / 2);
-   const firstColumnProducts = products.slice(0, midPoint);
-   const secondColumnProducts = products.slice(midPoint);
+  const midPoint = Math.ceil(products.length / 2);
+  const firstColumnProducts = products.slice(0, midPoint);
+  const secondColumnProducts = products.slice(midPoint);
 
   return (
     <footer className="bg-gray-50 pt-16 pb-8">
@@ -50,34 +77,39 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Products Column 1 */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Products</h3>
-            <ul className="space-y-2">
-              {firstColumnProducts.map((product) => (
-                <li key={product.id}>
-                  <Link href={`/products/${product.id}`} className="text-gray-600 hover:text-primary transition-colors text-sm">
-                    {product.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {loading ? (
+            <div className="text-center text-gray-500 text-sm py-10">Loading products...</div>
+          ) : (
+            <>
+              {/* Products Column 1 */}
+              <div>
+                <h3 className="text-lg font-semibold mb-4">Products</h3>
+                <ul className="space-y-2">
+                  {firstColumnProducts.map((product) => (
+                    <li key={product.id}>
+                      <Link href={`/public/${product.id}`} className="text-gray-600 hover:text-primary transition-colors text-sm">
+                        {product.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-          {/* Products Column 2 */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">&nbsp;</h3>
-            <ul className="space-y-2">
-              {secondColumnProducts.map((product) => (
-                <li key={product.id}>
-                  <Link href={`/products/${product.id}`} className="text-gray-600 hover:text-primary transition-colors text-sm">
-                    {product.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
+              {/* Products Column 2 */}
+              <div>
+                <h3 className="text-lg font-semibold mb-4">&nbsp;</h3>
+                <ul className="space-y-2">
+                  {secondColumnProducts.map((product) => (
+                    <li key={product.id}>
+                      <Link href={`/products/${product.id}`} className="text-gray-600 hover:text-primary transition-colors text-sm">
+                        {product.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          )}
           {/* Contact Section */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact Us</h3>

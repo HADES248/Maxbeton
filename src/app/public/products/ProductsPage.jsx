@@ -8,7 +8,36 @@ import { ProductContext } from '@/hooks/products';
 
 const ProductsPage = () => {
   const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
-  const { products } = useContext(ProductContext);
+  const [loading, setLoading] = useState(false);
+  const { products, setProducts } = useContext(ProductContext);
+
+  // API call for all products
+  useEffect(() => {
+    const getProducts = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch("/public/api/products", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setProducts(data.products);
+        } else {
+          console.error("Failed to fetch data");
+        }
+      } catch (err) {
+        console.error("Failed to fetch data", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getProducts();
+  }, []);
 
   return (
     <div>
@@ -61,37 +90,41 @@ const ProductsPage = () => {
             </div>
           </div>
 
-          <motion.div
-            initial="initial"
-            animate="animate"
-            className={viewMode === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6' : 'space-y-6'}
-          >
-            {products.map((product) => (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex w-full ${viewMode === 'grid' ? 'flex-col' : 'flex-row'}`}
-              >
-                <div className={viewMode === 'grid' ? 'h-60' : 'h-48 w-full'}>
-                  <img className="w-full h-full object-cover" alt={product.images[0].alt} src={product.images[0].url} />
-                </div>
-                <div className={`p-6 flex flex-col flex-grow ${viewMode === 'list' ? 'flex-1' : ''}`}>
-                  <h3 className="text-xl font-semibold mb-2">{product.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4 flex-grow">
-                    {viewMode === 'grid' ? `${product.description.substring(0, 100)}...` : product.description}
-                  </p>
-                  <Link href={`/public/${product.id}`}>
-                    <Button className="w-full mt-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 group text-white">
-                      View Details
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Button>
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+          {loading ? (
+            <div className="text-center text-gray-500 text-lg py-10">Loading products...</div>
+          ) : (
+            <motion.div
+              initial="initial"
+              animate="animate"
+              className={viewMode === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6' : 'space-y-6'}
+            >
+              {products.map((product) => (
+                <motion.div
+                  key={product.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex w-full ${viewMode === 'grid' ? 'flex-col' : 'flex-row'}`}
+                >
+                  <div className={viewMode === 'grid' ? 'h-60' : 'h-48 w-full'}>
+                    <img className="w-full h-full object-cover" alt={product.images[0].alt} src={product.images[0].url} />
+                  </div>
+                  <div className={`p-6 flex flex-col flex-grow ${viewMode === 'list' ? 'flex-1' : ''}`}>
+                    <h3 className="text-xl font-semibold mb-2">{product.title}</h3>
+                    <p className="text-gray-600 text-sm mb-4 flex-grow">
+                      {viewMode === 'grid' ? `${product.description.substring(0, 100)}...` : product.description}
+                    </p>
+                    <Link href={`/public/${product.id}`}>
+                      <Button className="w-full mt-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 group text-white">
+                        View Details
+                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </Button>
+                    </Link>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
         </div>
       </section>
     </div>
