@@ -7,6 +7,9 @@ import AboutPreviewSection from '@/components/home/AboutPreviewSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import CtaSection from '@/components/home/CtaSection';
 import { ProductContext } from '@/hooks/products';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 // export const metadata = {
 //   title: 'MaxBeton - Quality Construction Equipment',
@@ -23,7 +26,7 @@ const HomePage = () => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const response = await fetch("/public/api/products", {
+        const response = await fetch("/api/products", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -54,6 +57,7 @@ const HomePage = () => {
 
   return (
     <div>
+      <Navbar/>
       <HeroSection />
       {!loading && (
         <>
@@ -64,6 +68,8 @@ const HomePage = () => {
       )}
       <TestimonialsSection />
       <CtaSection />
+      <Footer/>
+      <WhatsAppButton />
     </div>
   );
 };

@@ -1,4 +1,7 @@
-import AboutPageDetails from './AboutPageDetails'
+import Navbar from '@/components/Navbar'
+import ProductDetailPage from './ProductsDetails'
+import Footer from '@/components/Footer'
+import WhatsAppButton from '@/components/WhatsAppButton'
 
 // export const metadata = {
 //   title: 'MaxBeton - Quality Construction Equipment',
@@ -7,10 +10,13 @@ import AboutPageDetails from './AboutPageDetails'
 //     'construction equipment, heavy machinery, excavator, bulldozer, loader, crane, maxbeton, heracles h130, tracked dumper, electric wheelbarrow',
 // };
 
-export default function AboutPage() {
+export default function productDetail() {
   return (
     <div>
-      <AboutPageDetails />
+      <Navbar />
+      <ProductDetailPage />
+      <Footer />
+      <WhatsAppButton />
     </div>
   )
 }

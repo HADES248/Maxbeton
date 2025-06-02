@@ -19,7 +19,7 @@ export default function ProductDetailPage() {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const response = await fetch("/public/api/products", {
+        const response = await fetch("/api/products", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -64,7 +64,7 @@ export default function ProductDetailPage() {
         </Head>
         <h1 className="text-3xl font-bold mb-4">Product Not Found</h1>
         <p className="text-gray-600 mb-8">The product you are looking for does not exist.</p>
-        <Link href="/public/products">
+        <Link href="/products">
           <Button variant="outline">
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Products
           </Button>
@@ -94,7 +94,7 @@ export default function ProductDetailPage() {
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }}>
         <div className="mb-8">
-          <Link href="/public/products">
+          <Link href="/products">
             <Button variant="outline" className="group">
               <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
               Back to Products

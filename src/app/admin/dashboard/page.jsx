@@ -12,7 +12,7 @@ export default function Dashboard() {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch("/public/api/products", {
+      const response = await fetch("/api/products", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -85,21 +85,25 @@ export default function Dashboard() {
       url: result.info.secure_url,
       alt: result.info.original_filename
     };
-    console.log(uploadedImage.url);
-    console.log(uploadedImage.alt);
     setForm((prev) => ({ ...prev, images: [...prev.images, uploadedImage] }));
+  };
+
+  const removeImage = (index) => {
+    const updatedImages = form.images.filter((_, i) => i !== index);
+    setForm({ ...form, images: updatedImages });
   };
 
   const addProduct = async () => {
     if (!form.id || !form.title) return;
+    console.log(form);
 
     try {
-      const response = await fetch("/public/api/add", {
+      const response = await fetch("/api/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ productData: form }),
       });
 
       if (!response.ok) {
@@ -116,7 +120,7 @@ export default function Dashboard() {
 
   const deleteProduct = async (id) => {
     try {
-      const response = await fetch("/public/api/delete", {
+      const response = await fetch("/api/delete", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -153,7 +157,7 @@ export default function Dashboard() {
 
   const saveUpdatedProduct = async () => {
     try {
-      const response = await fetch("/public/api/update", {
+      const response = await fetch("/api/update", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -228,7 +232,15 @@ export default function Dashboard() {
           </CldUploadWidget>
           <div className="grid grid-cols-2 gap-2 mt-2">
             {form.images.map((img, i) => (
-              <img key={i} src={img.url} alt={img.alt} className="h-24 object-cover rounded border" />
+              <div key={i} className="relative">
+                <img src={img.url} alt={img.alt} className="h-full object-cover rounded border w-full" />
+                <button
+                  onClick={() => removeImage(i)}
+                  className="absolute top-1 right-1 text-red-600 bg-white rounded-full px-1 text-sm shadow"
+                >
+                  ×
+                </button>
+              </div>
             ))}
           </div>
         </div>

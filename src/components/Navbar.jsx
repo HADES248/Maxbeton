@@ -17,10 +17,10 @@ const Navbar = () => {
   };
 
   const navItemsConfig = [
-    { nameKey: 'Home', path: '/public/' },
-    { nameKey: 'Products', path: '/public/products' },
-    { nameKey: 'About', path: '/public/about' },
-    { nameKey: 'Contact', path: '/public/contact' },
+    { nameKey: 'Home', path: '/' },
+    { nameKey: 'Products', path: '/products' },
+    { nameKey: 'About', path: '/about' },
+    { nameKey: 'Contact', path: '/contact' },
   ];
 
   const navItems = navItemsConfig.map(item => ({
@@ -43,7 +43,7 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             <NavLinks navItems={navItems} isActive={isActive} motionLayoutIdPrefix="navbar-indicator-desktop" />
-            <Link href="/public/contact">
+            <Link href="/contact">
               <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 text-white cursor-pointer">
                 Get Quote
               </Button>

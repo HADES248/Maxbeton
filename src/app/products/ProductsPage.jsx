@@ -16,7 +16,7 @@ const ProductsPage = () => {
     const getProducts = async () => {
       setLoading(true);
       try {
-        const response = await fetch("/public/api/products", {
+        const response = await fetch("/api/products", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -114,7 +114,7 @@ const ProductsPage = () => {
                     <p className="text-gray-600 text-sm mb-4 flex-grow">
                       {viewMode === 'grid' ? `${product.description.substring(0, 100)}...` : product.description}
                     </p>
-                    <Link href={`/public/${product.id}`}>
+                    <Link href={`/${product.id}`}>
                       <Button className="w-full mt-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 group text-white">
                         View Details
                         <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />

@@ -12,7 +12,7 @@ const Footer = () => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const response = await fetch("/public/api/products", {
+        const response = await fetch("/api/products", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
