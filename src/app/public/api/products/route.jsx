@@ -5,8 +5,6 @@ export async function POST(req) {
 
   const { id } = await req.json();
 
-  console.log(id);
-
   await connectToDb();
 
   // const filter = {}

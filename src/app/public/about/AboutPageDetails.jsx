@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Users, Target, Award, Clock } from 'lucide-react';
 
-const AboutPage = () => {
+const AboutPageDetails = () => {
 
   const teamMembers = [
     { name: 'Alex Johnson', position: 'CEO & Founder', image: 'Professional portrait of company CEO' },
