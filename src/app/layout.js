@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { ProductProvider } from "@/hooks/products";
+import { UserProvider } from "@/hooks/user";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,12 +27,14 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ProductProvider>
-          <Navbar/>
-          {children}
-          <Footer/>
-          <WhatsAppButton/>
-        </ProductProvider>
+        <UserProvider>
+          <ProductProvider>
+            <Navbar />
+            {children}
+            <Footer />
+            <WhatsAppButton />
+          </ProductProvider>
+        </UserProvider>
       </body>
     </html>
   );
