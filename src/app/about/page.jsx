@@ -1,7 +1,5 @@
-import Navbar from '@/components/Navbar'
 import AboutPageDetails from './AboutPageDetails'
-import Footer from '@/components/Footer'
-import WhatsAppButton from '@/components/WhatsAppButton'
+
 
 // export const metadata = {
 //   title: 'MaxBeton - Quality Construction Equipment',
@@ -13,10 +11,7 @@ import WhatsAppButton from '@/components/WhatsAppButton'
 export default function AboutPage() {
   return (
     <div>
-      <Navbar />
       <AboutPageDetails />
-      <Footer />
-      <WhatsAppButton />
     </div>
   )
 }

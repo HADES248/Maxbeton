@@ -7,9 +7,6 @@ import AboutPreviewSection from '@/components/home/AboutPreviewSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import CtaSection from '@/components/home/CtaSection';
 import { ProductContext } from '@/hooks/products';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import WhatsAppButton from '@/components/WhatsAppButton';
 
 // export const metadata = {
 //   title: 'MaxBeton - Quality Construction Equipment',
@@ -57,19 +54,21 @@ const HomePage = () => {
 
   return (
     <div>
-      <Navbar/>
       <HeroSection />
-      {!loading && (
+      {loading ? (
+        <p className="text-center text-gray-500 text-lg py-8 animate-pulse">
+          Loading content, please wait...
+        </p>
+      ) : (
         <>
-          <FeaturedEquipmentSection products={featuredProducts.length > 0 ? featuredProducts : products.slice(0, 3)}
+          <FeaturedEquipmentSection
+            products={featuredProducts.length > 0 ? featuredProducts : products.slice(0, 3)}
           />
           <AboutPreviewSection imageSrc={aboutPreviewImage} />
         </>
       )}
       <TestimonialsSection />
       <CtaSection />
-      <Footer/>
-      <WhatsAppButton />
     </div>
   );
 };

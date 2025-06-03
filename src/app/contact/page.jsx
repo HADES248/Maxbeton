@@ -1,7 +1,4 @@
-import Navbar from '@/components/Navbar'
 import ContactPage from './ContactForm'
-import Footer from '@/components/Footer'
-import WhatsAppButton from '@/components/WhatsAppButton'
 
 // export const metadata = {
 //   title: 'MaxBeton - Quality Construction Equipment',
@@ -13,10 +10,7 @@ import WhatsAppButton from '@/components/WhatsAppButton'
 export default function Contact() {
   return (
     <div>
-      <Navbar/>
       <ContactPage />
-      <Footer/>
-      <WhatsAppButton />
     </div>
   )
 }

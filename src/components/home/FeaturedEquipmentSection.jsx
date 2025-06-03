@@ -58,7 +58,7 @@ const FeaturedEquipmentSection = ({ products }) => {
               <div className="mb-6 inline-block p-4 bg-gray-50 rounded-lg">{icons[index % icons.length]}</div>
               <h3 className="text-xl font-semibold mb-3">{product.title}</h3>
               <p className="text-gray-600 mb-6 flex-grow">{product.description.substring(0, 120)}...</p>
-              <Link href={`/public/${product.id}`} className="mt-auto">
+              <Link href={`/${product.id}`} className="mt-auto">
                 <Button variant="outline" className="w-full group">
                   View Details
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />

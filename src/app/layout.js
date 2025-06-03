@@ -27,7 +27,10 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ProductProvider>
+          <Navbar/>
           {children}
+          <Footer/>
+          <WhatsAppButton/>
         </ProductProvider>
       </body>
     </html>
