@@ -17,8 +17,8 @@ const productSchema = new mongoose.Schema({
       title: { type: String, required: true }
     }
   ],
-  brochureUrl: { type: String, required: true },
-  metaKeywords: { type: String, required: true },
+  brochureUrl: { type: String },
+  metaKeywords: { type: String },
   specifications: [
     {
       name: { type: String, required: true },

@@ -2,6 +2,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { CldUploadWidget } from 'next-cloudinary';
 import { UserContext } from '@/hooks/user';
+import showCustomAlert from '@/components/Alert';
 
 export default function Dashboard() {
   const [products, setProducts] = useState([]);
@@ -102,7 +103,6 @@ export default function Dashboard() {
 
   const addProduct = async () => {
     if (!form.id || !form.title) return;
-    console.log(form);
 
     try {
       const response = await fetch("/api/add", {
@@ -113,13 +113,16 @@ export default function Dashboard() {
         body: JSON.stringify({ productData: form }),
       });
 
+      if (response.status === 409) {
+        showCustomAlert("The Product Already Exists!", "danger");
+      }
+
       if (!response.ok) {
         throw new Error("Failed to add product");
       }
-
-      console.log("Product added successfully");
       fetchProducts();
       resetForm();
+      showCustomAlert("Your submission was successful!", "success");
     } catch (err) {
       console.error("Error adding product:", err);
     }
@@ -136,9 +139,9 @@ export default function Dashboard() {
       });
       if (response.ok) {
         setProducts(products.filter(product => product.id !== id));
-        console.log("Product Deleted!");
+        showCustomAlert("Product Deleted Successfully!", "success");
       } else {
-        console.error("Failed to delete product");
+        showCustomAlert("Failed to Delete Product", "danger");
       }
     } catch (err) {
       console.error("Failed to delete product", err);
@@ -173,11 +176,13 @@ export default function Dashboard() {
       });
 
       if (!response.ok) {
+        showCustomAlert("Failed to update Product", "danger");
         throw new Error("Failed to update product");
       }
 
       await fetchProducts();
       resetForm();
+      showCustomAlert("Product Updated Successfully", "success");
     } catch (error) {
       console.error("Error updating product:", error);
     }
@@ -190,7 +195,7 @@ export default function Dashboard() {
   const logout = () => {
     window.location.href = '/';
     localStorage.removeItem('user');
-    alert("Logout Successfull!");
+    showCustomAlert("Logged Out Successfully", "success");
   }
   return (
     userLoading ? (
@@ -200,83 +205,73 @@ export default function Dashboard() {
         </p>
       </div>
     ) : !user ? (
-      <>
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="relative w-96 p-6 rounded-lg shadow-lg bg-gradient-to-r from-purple-500 to-blue-500 text-white">
-            <h2 className="text-xl font-bold mb-4 text-center">Access Restricted</h2>
-            <p className="text-center">Please Login To Access This Page</p>
-            <div className="mt-4 flex justify-center">
-              <button
-                onClick={() => window.location.href = "/"}
-                className="px-4 py-2 bg-white text-purple-600 rounded hover:bg-gray-200 transition cursor-pointer"
-              >
-                Go to Home
-              </button>
-            </div>
+      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50">
+        <div className="w-full max-w-md p-8 rounded-xl shadow-2xl bg-gradient-to-br from-purple-600 to-blue-600 text-white">
+          <h2 className="text-2xl font-bold mb-4 text-center">Access Restricted</h2>
+          <p className="text-center">Please login to access this page</p>
+          <div className="mt-6 flex justify-center">
+            <button
+              onClick={() => window.location.href = "/"}
+              className="px-5 py-2 bg-white text-purple-700 font-semibold rounded-lg hover:bg-gray-200 transition duration-300"
+            >
+              Go to Home
+            </button>
           </div>
         </div>
-      </>
+      </div>
+    ) : loading ? (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-white">
+        <p className="text-gray-500 text-lg animate-pulse">
+          Loading, please wait...
+        </p>
+      </div>
     ) : (
-      loading ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-white">
-          <p className="text-gray-500 text-lg animate-pulse">
-            Loading, please wait...
-          </p>
-        </div>
-      ) : (
-        <div className="fixed inset-0 z-30 overflow-y-auto bg-gray-50 p-8">
-          <button onClick={logout} className="absolute top-4 right-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 shadow-md">
-            Logout
-          </button >
-          <h1 className="text-3xl font-bold">Admin Dashboard</h1>
+      <div className="fixed inset-0 z-30 overflow-y-auto bg-gray-50 p-6 sm:p-10">
+        <button
+          onClick={logout}
+          className="absolute top-4 right-4 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition shadow-md cursor-pointer"
+        >
+          Logout
+        </button>
 
-          <div className="border border-gray-300 p-4 rounded-lg mt-8">
-            <h2 className="text-xl mb-4">Add / Update Product</h2>
-            <input name="id" placeholder="Product ID" value={form.id} onChange={handleChange} className="w-full p-2 mb-3 border border-gray-300 rounded" />
-            <input name="title" placeholder="Title" value={form.title} onChange={handleChange} className="w-full p-2 mb-3 border border-gray-300 rounded" />
-            <input name="category" placeholder="Category" value={form.category} onChange={handleChange} className="w-full p-2 mb-3 border border-gray-300 rounded" />
-            <textarea name="description" placeholder="Description" value={form.description} onChange={handleChange} className="w-full h-20 p-2 mb-3 border border-gray-300 rounded" />
-            <input name="brochureUrl" placeholder="Brochure URL" value={form.brochureUrl} onChange={handleChange} className="w-full p-2 mb-3 border border-gray-300 rounded" />
-            <input name="metaKeywords" placeholder="Meta Keywords" value={form.metaKeywords} onChange={handleChange} className="w-full p-2 mb-3 border border-gray-300 rounded" />
+        <h1 className="text-4xl font-extrabold text-gray-800 mb-6">Admin Dashboard</h1>
 
-            <div className="mt-4">
-              <h3 className="text-lg font-medium mb-2">Specifications</h3>
+        <div className="bg-white border border-gray-200 p-6 rounded-2xl shadow-md">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Add / Update Product</h2>
+          <div className="space-y-4">
+            <input name="id" placeholder="Product ID" value={form.id} onChange={handleChange} className="w-full p-3 border rounded-lg" required />
+            <input name="title" placeholder="Title" value={form.title} onChange={handleChange} className="w-full p-3 border rounded-lg" required />
+            <input name="category" placeholder="Category" value={form.category} onChange={handleChange} className="w-full p-3 border rounded-lg" required />
+            <textarea name="description" placeholder="Description" value={form.description} onChange={handleChange} className="w-full h-24 p-3 border rounded-lg" required />
+            <input name="brochureUrl" placeholder="Brochure URL" value={form.brochureUrl} onChange={handleChange} className="w-full p-3 border rounded-lg" />
+            <input name="metaKeywords" placeholder="Meta Keywords" value={form.metaKeywords} onChange={handleChange} className="w-full p-3 border rounded-lg" />
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Specifications</h3>
               {form.specifications.map((spec, index) => (
-                <div key={index} className="flex items-center gap-2 mb-2">
-                  <input
-                    placeholder="Name"
-                    value={spec.name}
-                    onChange={(e) => handleSpecChange(index, 'name', e.target.value)}
-                    className="flex-1 p-2 border border-gray-300 rounded"
-                  />
-                  <input
-                    placeholder="Value"
-                    value={spec.value}
-                    onChange={(e) => handleSpecChange(index, 'value', e.target.value)}
-                    className="flex-1 p-2 border border-gray-300 rounded"
-                  />
-                  <button onClick={() => removeSpecField(index)} className="text-red-500 font-bold">×</button>
+                <div key={index} className="flex gap-3 items-center mb-2">
+                  <input placeholder="Name" value={spec.name} onChange={(e) => handleSpecChange(index, 'name', e.target.value)} className="flex-1 p-2 border rounded-lg" />
+                  <input placeholder="Value" value={spec.value} onChange={(e) => handleSpecChange(index, 'value', e.target.value)} className="flex-1 p-2 border rounded-lg" />
+                  <button onClick={() => removeSpecField(index)} className="text-red-500 text-xl font-bold">×</button>
                 </div>
               ))}
-              <button onClick={addSpecField} className="mt-2 px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600">Add Specification</button>
+              <button onClick={addSpecField} className="mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Add Specification</button>
             </div>
 
-            <div className="mt-4">
-              <h3 className="text-lg font-medium mb-2">Upload Images</h3>
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Upload Images</h3>
               <CldUploadWidget uploadPreset="next_maxbeton" onSuccess={handleUploadSuccess}>
                 {({ open }) => (
-                  <button onClick={() => open()} className='w-full p-2 border border-gray-300 rounded'>
-                    Upload an Image
-                  </button>
+                  <button onClick={() => open()} className='w-full p-3 border rounded-lg'>Upload an Image</button>
                 )}
               </CldUploadWidget>
-              <div className="grid grid-cols-2 gap-2 mt-2">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-2">
                 {form.images.map((img, i) => (
                   <div key={i} className="relative">
-                    <img src={img.url} alt={img.alt} className="h-full object-cover rounded border w-full" />
+                    <img src={img.url} alt={img.alt} className="h-28 object-cover rounded-lg border w-full" />
                     <button
                       onClick={() => removeImage(i)}
-                      className="absolute top-1 right-1 text-red-600 bg-white rounded-full px-1 text-sm shadow"
+                      className="absolute top-1 right-1 text-red-600 bg-white rounded-full px-2 py-1 text-sm shadow"
                     >
                       ×
                     </button>
@@ -285,87 +280,72 @@ export default function Dashboard() {
               </div>
             </div>
 
-            <div className="mt-4">
-              <h3 className="text-lg font-medium mb-2">Video URLs</h3>
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Video URLs</h3>
               {form.videoUrls.map((video, index) => (
-                <div key={index} className="flex items-center gap-2 mb-2">
-                  <input
-                    placeholder="Video URL"
-                    value={video.url}
-                    onChange={(e) => handleVideoChange(index, 'url', e.target.value)}
-                    className="flex-1 p-2 border border-gray-300 rounded"
-                  />
-                  <input
-                    placeholder="Video Title"
-                    value={video.title}
-                    onChange={(e) => handleVideoChange(index, 'title', e.target.value)}
-                    className="flex-1 p-2 border border-gray-300 rounded"
-                  />
-                  <button onClick={() => removeVideoField(index)} className="text-red-500 font-bold">×</button>
+                <div key={index} className="flex items-center gap-3 mb-2">
+                  <input placeholder="Video URL" value={video.url} onChange={(e) => handleVideoChange(index, 'url', e.target.value)} className="flex-1 p-2 border rounded-lg" />
+                  <input placeholder="Video Title" value={video.title} onChange={(e) => handleVideoChange(index, 'title', e.target.value)} className="flex-1 p-2 border rounded-lg" />
+                  <button onClick={() => removeVideoField(index)} className="text-red-500 text-xl font-bold">×</button>
                 </div>
               ))}
-              <button onClick={addVideoField} className="mt-2 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">Add Video</button>
+              <button onClick={addVideoField} className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Add Video</button>
             </div>
 
             <div className="flex gap-4 mt-6">
-              <button onClick={addProduct} className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Add</button>
-              <button onClick={saveUpdatedProduct} className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600">Save Update</button>
+              <button onClick={addProduct} className="px-6 py-2 bg-blue-600 text-white font-medium rounded hover:bg-blue-700">Add</button>
+              <button onClick={saveUpdatedProduct} className="px-6 py-2 bg-yellow-500 text-white font-medium rounded hover:bg-yellow-600">Save Update</button>
             </div>
           </div>
+        </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
-            {loading ? (
-              <div className="text-gray-500 text-lg py-10">Loading products...</div>
-            ) : (
-              products.map(product => (
-                <div key={product.id} className="relative border border-gray-300 rounded-lg p-4 bg-white shadow">
-                  <h3 className="font-bold text-lg">{product.title}</h3>
-                  <p className="text-gray-600">{product.category}</p>
-                  <p className="mt-2">{product.description}</p>
-                  <ul className="mt-2 text-sm text-gray-700">
-                    {product.specifications.map((spec, i) => (
-                      <li key={i}><strong>{spec.name}:</strong> {spec.value}</li>
-                    ))}
-                  </ul>
-                  <div className="grid grid-cols-2 gap-2 mt-2">
-                    {product.images.map((img, i) => (
-                      <img key={i} src={img.url} alt={img.alt} className="h-20 object-cover rounded border" />
-                    ))}
-                  </div>
-                  <div className="mt-2">
-                    {product.videoUrls.map((video, i) => (
-                      <div key={i} className="mb-2">
-                        <iframe
-                          width="100%"
-                          height="150"
-                          src={video.url}
-                          title={video.title}
-                          frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                        ></iframe>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="absolute top-2 right-2 flex gap-2">
-                    <button
-                      onClick={() => updateProduct(product.id)}
-                      className="px-3 py-1 bg-yellow-500 text-white text-sm rounded hover:bg-yellow-600"
-                    >
-                      Edit
-                    </button>
-                    <button
-                      onClick={() => deleteProduct(product.id)}
-                      className="px-3 py-1 bg-red-600 text-white text-sm rounded hover:bg-red-700"
-                    >
-                      Delete
-                    </button>
-                  </div>
-                </div>
-              )))}
-          </div>
-        </div >
-      )
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+          {products.map(product => (
+            <div key={product.id} className="relative bg-white p-6 rounded-xl border shadow hover:shadow-lg transition">
+              <h3 className="text-xl font-semibold text-gray-800 mb-1">{product.title}</h3>
+              <p className="text-sm text-gray-500 mb-2">{product.category}</p>
+              <p className="text-gray-700 text-sm mb-3 line-clamp-3">{product.description}</p>
+              <ul className="text-sm text-gray-700 space-y-1">
+                {product.specifications.map((spec, i) => (
+                  <li key={i}><strong>{spec.name}:</strong> {spec.value}</li>
+                ))}
+              </ul>
+              <div className="grid grid-cols-2 gap-2 mt-2">
+                {product.images.map((img, i) => (
+                  <img key={i} src={img.url} alt={img.alt} className="h-20 object-cover rounded-lg border" />
+                ))}
+              </div>
+              <div className="mt-2">
+                {product.videoUrls.map((video, i) => (
+                  <iframe
+                    key={i}
+                    className="w-full h-40 rounded-lg"
+                    src={video.url}
+                    title={video.title}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                ))}
+              </div>
+              <div className="absolute top-3 right-3 flex gap-2">
+                <button
+                  onClick={() => updateProduct(product.id)}
+                  className="px-3 py-1 bg-yellow-500 text-white text-sm rounded-lg hover:bg-yellow-600"
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => deleteProduct(product.id)}
+                  className="px-3 py-1 bg-red-600 text-white text-sm rounded-lg hover:bg-red-700"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     )
   );
 }

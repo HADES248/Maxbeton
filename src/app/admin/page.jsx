@@ -11,7 +11,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (username === "amol" && password === "test") {
+    if (username === "test" && password === "test") {
       const loggedInUser = { username, password };
       setUser(loggedInUser);
       localStorage.setItem('user', JSON.stringify(loggedInUser));
