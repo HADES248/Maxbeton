@@ -1,11 +1,12 @@
 'use client';
+import showCustomAlert from "@/components/Alert";
 import { UserContext } from "@/hooks/user";
 import { useRouter } from "next/navigation";
 import React, { useContext, useState } from "react";
 
 const Login = () => {
   const router = useRouter();
-  const { user, setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,10 +16,10 @@ const Login = () => {
       const loggedInUser = { username, password };
       setUser(loggedInUser);
       localStorage.setItem('user', JSON.stringify(loggedInUser));
-      alert("Login successful!");
+      showCustomAlert('Login Successful', 'success');
       router.push('/admin/dashboard');
     } else {
-      alert("Invalid username or password");
+      showCustomAlert('Invalid Username or Password', 'danger');
     }
   };
 

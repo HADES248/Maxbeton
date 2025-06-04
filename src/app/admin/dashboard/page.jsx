@@ -31,7 +31,7 @@ export default function Dashboard() {
         const data = await response.json();
         setProducts(data.products);
       } else {
-        console.error("Failed to fetch data");
+        showCustomAlert("Failed to Fetch Data", "danger");
       }
     } catch (err) {
       console.error("Failed to fetch data", err);
@@ -116,13 +116,14 @@ export default function Dashboard() {
       if (response.status === 409) {
         showCustomAlert("The Product Already Exists!", "danger");
       }
-
-      if (!response.ok) {
-        throw new Error("Failed to add product");
+      if (response.ok) {
+        fetchProducts();
+        resetForm();
+        showCustomAlert("Your submission was successful!", "success");
+      } else if (!response.ok) {
+        showCustomAlert("Failed to Add Product", "danger");
       }
-      fetchProducts();
-      resetForm();
-      showCustomAlert("Your submission was successful!", "success");
+
     } catch (err) {
       console.error("Error adding product:", err);
     }
@@ -175,14 +176,13 @@ export default function Dashboard() {
         body: JSON.stringify(form),
       });
 
-      if (!response.ok) {
+      if (response.ok) {
+        await fetchProducts();
+        resetForm();
+        showCustomAlert("Product Updated Successfully", "success");
+      } else if (!response.ok) {
         showCustomAlert("Failed to update Product", "danger");
-        throw new Error("Failed to update product");
       }
-
-      await fetchProducts();
-      resetForm();
-      showCustomAlert("Product Updated Successfully", "success");
     } catch (error) {
       console.error("Error updating product:", error);
     }
