@@ -12,7 +12,7 @@ export async function POST(req) {
   // if (parking) filter.parking = parking;
   // if (furnished) filter.furnished = furnished;
 
-  const product = await productModel.findOne({ id });
+  const product = await productModel.findById({ _id: id });
   return Response.json({ product }, { status: 200 });
 }
 

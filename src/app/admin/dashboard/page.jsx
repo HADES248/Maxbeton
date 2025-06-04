@@ -7,6 +7,7 @@ import showCustomAlert from '@/components/Alert';
 export default function Dashboard() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [productId, setProductId] = useState('');
   const [userLoading, setUserLoading] = useState(true);
   const { user } = useContext(UserContext);
 
@@ -88,7 +89,7 @@ export default function Dashboard() {
     setForm({ ...form, videoUrls: updatedVideos });
   };
 
-  const handleUploadSuccess = (result) => {
+  const handleImageUploadSuccess = (result) => {
     const uploadedImage = {
       url: result.info.secure_url,
       alt: result.info.original_filename
@@ -96,13 +97,22 @@ export default function Dashboard() {
     setForm((prev) => ({ ...prev, images: [...prev.images, uploadedImage] }));
   };
 
+  const handleBrochureUploadSuccess = (result) => {
+    const uploadedBrochure = result.info.secure_url;
+    setForm((prev) => ({ ...prev, brochureUrl: [...prev.brochureUrl, uploadedBrochure] }));
+  };
+
   const removeImage = (index) => {
     const updatedImages = form.images.filter((_, i) => i !== index);
+    console.log(updatedImages.url);
     setForm({ ...form, images: updatedImages });
   };
 
   const addProduct = async () => {
-    if (!form.id || !form.title) return;
+    if (!form.title || !form.category || !form.description) {
+      showCustomAlert('Missing Key Attributes', 'warning');
+      return;
+    }
 
     try {
       const response = await fetch("/api/add", {
@@ -113,15 +123,16 @@ export default function Dashboard() {
         body: JSON.stringify({ productData: form }),
       });
 
-      if (response.status === 409) {
-        showCustomAlert("The Product Already Exists!", "danger");
-      }
       if (response.ok) {
         fetchProducts();
         resetForm();
-        showCustomAlert("Your submission was successful!", "success");
+        showCustomAlert("Product Added Successfully!", "success");
       } else if (!response.ok) {
-        showCustomAlert("Failed to Add Product", "danger");
+        if (response.status === 409) {
+          showCustomAlert("The Product Already Exists!", "danger");
+        } else {
+          showCustomAlert("Failed to Add Product", "danger");
+        }
       }
 
     } catch (err) {
@@ -139,7 +150,7 @@ export default function Dashboard() {
         body: JSON.stringify({ id })
       });
       if (response.ok) {
-        setProducts(products.filter(product => product.id !== id));
+        setProducts(products.filter(product => product._id !== id));
         showCustomAlert("Product Deleted Successfully!", "success");
       } else {
         showCustomAlert("Failed to Delete Product", "danger");
@@ -150,10 +161,10 @@ export default function Dashboard() {
   };
 
   const updateProduct = (id) => {
-    const product = products.find(p => p.id === id);
+    setProductId(id);
+    const product = products.find(p => p._id === id);
     if (product) {
       setForm({
-        id: product.id || '',
         title: product.title || '',
         category: product.category || '',
         description: product.description || '',
@@ -173,7 +184,7 @@ export default function Dashboard() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ productData: form, id: productId }),
       });
 
       if (response.ok) {
@@ -181,7 +192,11 @@ export default function Dashboard() {
         resetForm();
         showCustomAlert("Product Updated Successfully", "success");
       } else if (!response.ok) {
-        showCustomAlert("Failed to update Product", "danger");
+        if (response.status === 409) {
+          showCustomAlert("This Product Does not Exist, please Add it first", "danger");
+        } else {
+          showCustomAlert("Failed to update Product", "danger");
+        }
       }
     } catch (error) {
       console.error("Error updating product:", error);
@@ -239,11 +254,32 @@ export default function Dashboard() {
         <div className="bg-white border border-gray-200 p-6 rounded-2xl shadow-md">
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">Add / Update Product</h2>
           <div className="space-y-4">
-            <input name="id" placeholder="Product ID" value={form.id} onChange={handleChange} className="w-full p-3 border rounded-lg" required />
             <input name="title" placeholder="Title" value={form.title} onChange={handleChange} className="w-full p-3 border rounded-lg" required />
             <input name="category" placeholder="Category" value={form.category} onChange={handleChange} className="w-full p-3 border rounded-lg" required />
             <textarea name="description" placeholder="Description" value={form.description} onChange={handleChange} className="w-full h-24 p-3 border rounded-lg" required />
-            <input name="brochureUrl" placeholder="Brochure URL" value={form.brochureUrl} onChange={handleChange} className="w-full p-3 border rounded-lg" />
+            <CldUploadWidget uploadPreset="maxbeton_pdf" onSuccess={handleBrochureUploadSuccess}>
+              {({ open }) => (
+                <button onClick={() => open()} className='w-full p-3 border rounded-lg'>Upload brochure</button>
+              )}
+            </CldUploadWidget>
+            {form.brochureUrl && (
+              <div className="relative mt-2 p-3 border rounded-lg bg-gray-100">
+                <a
+                  href={form.brochureUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 underline"
+                >
+                  View Brochure
+                </a>
+                <button
+                  onClick={() => setForm({ ...form, brochureUrl: '' })}
+                  className="absolute top-2 right-2 text-red-500 text-xl font-bold"
+                >
+                  ×
+                </button>
+              </div>
+            )}
             <input name="metaKeywords" placeholder="Meta Keywords" value={form.metaKeywords} onChange={handleChange} className="w-full p-3 border rounded-lg" />
 
             <div>
@@ -260,7 +296,7 @@ export default function Dashboard() {
 
             <div>
               <h3 className="text-lg font-semibold mb-2">Upload Images</h3>
-              <CldUploadWidget uploadPreset="next_maxbeton" onSuccess={handleUploadSuccess}>
+              <CldUploadWidget uploadPreset="maxbeton_images" onSuccess={handleImageUploadSuccess}>
                 {({ open }) => (
                   <button onClick={() => open()} className='w-full p-3 border rounded-lg'>Upload an Image</button>
                 )}
@@ -301,7 +337,7 @@ export default function Dashboard() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
           {products.map(product => (
-            <div key={product.id} className="relative bg-white p-6 rounded-xl border shadow hover:shadow-lg transition">
+            <div key={product._id} className="relative bg-white p-6 rounded-xl border shadow hover:shadow-lg transition">
               <h3 className="text-xl font-semibold text-gray-800 mb-1">{product.title}</h3>
               <p className="text-sm text-gray-500 mb-2">{product.category}</p>
               <p className="text-gray-700 text-sm mb-3 line-clamp-3">{product.description}</p>
@@ -330,13 +366,13 @@ export default function Dashboard() {
               </div>
               <div className="absolute top-3 right-3 flex gap-2">
                 <button
-                  onClick={() => updateProduct(product.id)}
+                  onClick={() => updateProduct(product._id)}
                   className="px-3 py-1 bg-yellow-500 text-white text-sm rounded-lg hover:bg-yellow-600"
                 >
                   Edit
                 </button>
                 <button
-                  onClick={() => deleteProduct(product.id)}
+                  onClick={() => deleteProduct(product._id)}
                   className="px-3 py-1 bg-red-600 text-white text-sm rounded-lg hover:bg-red-700"
                 >
                   Delete

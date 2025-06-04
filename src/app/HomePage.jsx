@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useContext, useEffect, useState } from 'react';
 import HeroSection from '@/components/home/HeroSection';
 import FeaturedEquipmentSection from '@/components/home/FeaturedEquipmentSection';
@@ -46,11 +45,9 @@ const HomePage = () => {
     getProducts();
   }, []);
 
-  const featuredProductIds = ['heracles-h130', '1-ton-tracked-dumper', 'electric-wheelbarrow'];
-  const featuredProducts = products.filter((p) => featuredProductIds.includes(p.id));
-
-  const heraclesH130 = products.find((p) => p.id === 'heracles-h130');
-  const aboutPreviewImage = heraclesH130?.images[0]?.url || 'https://images.unsplash.com/photo-1603814744247-ca3e77714471';
+  const featuredProductIds = ['6838404006d5c4b4b79057f5', '68383c8a06d5c4b4b79057e0', '68383f5f06d5c4b4b79057ef'];
+  const featuredProducts = products.filter((p) => featuredProductIds.includes(p._id));
+  const aboutPreviewImage = featuredProducts[2]?.images[0]?.url || 'https://images.unsplash.com/photo-1603814744247-ca3e77714471';
 
   return (
     <div>

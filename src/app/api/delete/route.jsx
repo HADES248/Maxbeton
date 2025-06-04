@@ -7,6 +7,6 @@ export async function DELETE(req) {
 
   await connectToDb();
 
-  await productModel.findOneAndDelete({ id });
+  await productModel.findByIdAndDelete({ _id: id });
   return Response.json({ message: "Product Deleted Successfully" }, { status: 200 });
 }

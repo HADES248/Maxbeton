@@ -83,8 +83,8 @@ const Footer = () => {
                 <h3 className="text-lg font-semibold mb-4">Products</h3>
                 <ul className="space-y-2">
                   {firstColumnProducts.map((product) => (
-                    <li key={product.id}>
-                      <Link href={`/public/${product.id}`} className="text-gray-600 hover:text-primary transition-colors text-sm">
+                    <li key={product._id}>
+                      <Link href={`/public/${product._id}`} className="text-gray-600 hover:text-primary transition-colors text-sm">
                         {product.title}
                       </Link>
                     </li>
@@ -97,8 +97,8 @@ const Footer = () => {
                 <h3 className="text-lg font-semibold mb-4">&nbsp;</h3>
                 <ul className="space-y-2">
                   {secondColumnProducts.map((product) => (
-                    <li key={product.id}>
-                      <Link href={`/products/${product.id}`} className="text-gray-600 hover:text-primary transition-colors text-sm">
+                    <li key={product._id}>
+                      <Link href={`/products/${product._id}`} className="text-gray-600 hover:text-primary transition-colors text-sm">
                         {product.title}
                       </Link>
                     </li>

@@ -100,7 +100,7 @@ const ProductsPage = () => {
             >
               {products.map((product) => (
                 <motion.div
-                  key={product.id}
+                  key={product._id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
@@ -114,7 +114,7 @@ const ProductsPage = () => {
                     <p className="text-gray-600 text-sm mb-4 flex-grow">
                       {viewMode === 'grid' ? `${product.description.substring(0, 100)}...` : product.description}
                     </p>
-                    <Link href={`/${product.id}`}>
+                    <Link href={`/${product._id}`}>
                       <Button className="w-full mt-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 group text-white">
                         View Details
                         <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
