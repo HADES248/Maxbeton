@@ -1,10 +1,10 @@
 'use client';
 export default function showCustomAlert(message, status) {
   const colors = {
-    success: "text-green-800 bg-green-50 dark:bg-gray-800 dark:text-green-400",
-    danger: "text-red-800 bg-red-50 dark:bg-gray-800 dark:text-red-400",
-    warning: "text-yellow-800 bg-yellow-50 dark:bg-gray-800 dark:text-yellow-400",
-    info: "text-blue-800 bg-blue-50 dark:bg-gray-800 dark:text-blue-400",
+    success: "text-green-800 bg-green-50",
+    danger: "text-red-800 bg-red-50",
+    warning: "text-yellow-800 bg-yellow-50",
+    info: "text-blue-800 bg-blue-50",
   };
 
   const alertDiv = document.createElement("div");
