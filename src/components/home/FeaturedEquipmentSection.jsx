@@ -68,7 +68,7 @@ const FeaturedEquipmentSection = ({ products }) => {
           ))}
         </motion.div>
          <div className="text-center mt-16">
-           <Link href="/public/products">
+           <Link href="/products">
              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 text-white">
                View All Products
              </Button>

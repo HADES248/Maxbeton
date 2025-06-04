@@ -84,7 +84,7 @@ const Footer = () => {
                 <ul className="space-y-2">
                   {firstColumnProducts.map((product) => (
                     <li key={product._id}>
-                      <Link href={`/public/${product._id}`} className="text-gray-600 hover:text-primary transition-colors text-sm">
+                      <Link href={`/${product._id}`} className="text-gray-600 hover:text-primary transition-colors text-sm">
                         {product.title}
                       </Link>
                     </li>
@@ -98,7 +98,7 @@ const Footer = () => {
                 <ul className="space-y-2">
                   {secondColumnProducts.map((product) => (
                     <li key={product._id}>
-                      <Link href={`/products/${product._id}`} className="text-gray-600 hover:text-primary transition-colors text-sm">
+                      <Link href={`/${product._id}`} className="text-gray-600 hover:text-primary transition-colors text-sm">
                         {product.title}
                       </Link>
                     </li>

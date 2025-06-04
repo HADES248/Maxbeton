@@ -5,6 +5,7 @@ export async function POST(req) {
   try {
     const body = await req.json();
     const { productData } = body;
+    console.log(productData);
 
     await connectToDb();
 

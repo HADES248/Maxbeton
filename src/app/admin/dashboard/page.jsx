@@ -99,7 +99,8 @@ export default function Dashboard() {
 
   const handleBrochureUploadSuccess = (result) => {
     const uploadedBrochure = result.info.secure_url;
-    setForm((prev) => ({ ...prev, brochureUrl: [...prev.brochureUrl, uploadedBrochure] }));
+    console.log(result.info.secure_url);
+    setForm((prev) => ({ ...prev, brochureUrl: uploadedBrochure }));
   };
 
   const removeImage = (index) => {
