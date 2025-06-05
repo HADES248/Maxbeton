@@ -17,11 +17,11 @@ export const metadata = {
   openGraph: {
     title: "MaxBeton | Reliable Construction Equipment Experts",
     description: "Get powerful and durable machines for your construction needs. MaxBeton supplies premium-grade equipment for rent and sale.",
-    url: "https://www.maxbeton.com",
+    url: "https://www.maxbeton.vercel.app",
     siteName: "MaxBeton",
     images: [
       {
-        url: "https://www.maxbeton.com/og-image.jpg",
+        url: "https://images.unsplash.com/photo-1603814744247-ca3e77714471",
         width: 1200,
         height: 630,
         alt: "MaxBeton construction equipment on site"
@@ -35,7 +35,7 @@ export const metadata = {
     description: "Explore heavy-duty machinery from MaxBeton. We offer top-tier excavators, loaders, cranes, and more—available for purchase or rental.",
   },
   alternates: {
-    canonical: "https://www.maxbeton.com"
+    canonical: "https://www.maxbeton.vercel.app"
   }
 };
 

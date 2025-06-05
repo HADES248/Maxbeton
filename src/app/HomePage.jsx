@@ -7,13 +7,6 @@ import TestimonialsSection from '@/components/home/TestimonialsSection';
 import CtaSection from '@/components/home/CtaSection';
 import { ProductContext } from '@/hooks/products';
 
-// export const metadata = {
-//   title: 'MaxBeton - Quality Construction Equipment',
-//   description: 'Explore high-quality construction equipment including excavators, bulldozers, loaders, and cranes.',
-//   keywords:
-//     'construction equipment, heavy machinery, excavator, bulldozer, loader, crane, maxbeton, heracles h130, tracked dumper, electric wheelbarrow',
-// };
-
 const HomePage = () => {
   const [loading, setLoading] = useState(true);
   const { products, setProducts } = useContext(ProductContext);
