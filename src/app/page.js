@@ -2,7 +2,7 @@ import HomePage from "./HomePage";
 
 export const metadata = {
   title: "MaxBeton | Reliable Construction Equipment Sales & Rentals",
-  description: "MaxBeton is your trusted source for high-performance construction equipment, offering a wide range of excavators, loaders, bulldozers, cranes, and more. Whether you need to rent or purchase machinery, we provide reliable solutions tailored for every job site and project size.",
+  description: "MaxBeton offers high-performance construction equipment for every job site. Browse our selection of excavators, cranes, loaders, and more—available for sale or rent.",
   keywords: [
     "MaxBeton",
     "construction equipment",
