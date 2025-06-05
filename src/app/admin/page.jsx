@@ -10,18 +10,34 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (username === "test" && password === "test") {
-      const loggedInUser = { username, password };
-      setUser(loggedInUser);
-      localStorage.setItem('user', JSON.stringify(loggedInUser));
-      showCustomAlert('Login Successful', 'success');
-      router.push('/admin/dashboard');
-    } else {
-      showCustomAlert('Invalid Username or Password', 'danger');
+
+    try {
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setUser(data.user);
+        localStorage.setItem("user", JSON.stringify(data.user));
+        showCustomAlert("Login Successful", "success");
+        router.push("/admin/dashboard");
+      } else {
+        showCustomAlert(data.message || "Invalid Username or Password", "danger");
+      }
+    } catch (error) {
+      showCustomAlert("Something went wrong. Please try again.", "danger");
+      console.error("Login error:", error);
     }
   };
+
 
   return (
     <div className="fixed inset-0 z-30 flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600">
