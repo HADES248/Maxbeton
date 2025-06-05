@@ -3,7 +3,7 @@ import HomePage from "./HomePage";
 export const metadata = {
   title: "MaxBeton | Buy Construction Equipment Online in India",
   description:
-    "MaxBeton is your trusted source to buy construction equipment online in India. Shop excavators, loaders, cranes, and more. Fast delivery, secure checkout, and expert support.",
+    "MaxBeton—India’s trusted source for construction equipment. Shop excavators, loaders & cranes. Fast delivery, secure checkout & expert support.",
   keywords: [
     "buy construction equipment online",
     "construction machinery for sale",

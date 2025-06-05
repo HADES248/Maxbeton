@@ -22,7 +22,7 @@ export const metadata = {
     template: "%s | MaxBeton",
   },
   description:
-    "Buy construction equipment online from MaxBeton — India’s trusted source for high-performance machinery. Shop excavators, loaders, and more with secure checkout and nationwide delivery.",
+    "Buy construction equipment online from MaxBeton—India’s trusted source for high-performance machinery. Shop excavators, loaders & more. Nationwide delivery.",
   keywords: [
     "buy construction equipment online",
     "construction machinery for sale",
@@ -39,7 +39,7 @@ export const metadata = {
   openGraph: {
     title: "Buy Construction Equipment Online | MaxBeton",
     description:
-      "Explore MaxBeton's range of construction equipment available for purchase online. Trusted by 1000+ firms across India. Fast delivery, expert support.",
+      "Explore MaxBeton's construction equipment online. Trusted by 1000+ firms across India. Fast delivery & expert support—quality machinery at your fingertips.",
     url: "https://maxbeton.vercel.app",
     siteName: "MaxBeton",
     images: [

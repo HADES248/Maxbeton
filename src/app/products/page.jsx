@@ -3,7 +3,7 @@ import ProductsPage from "./ProductsPage"
 export const metadata = {
   title: "MaxBeton Products | Buy or Rent Construction Equipment Online",
   description:
-    "Browse MaxBeton's full catalog of construction equipment for sale and rent. Choose from excavators, cranes, loaders, and more—ideal for any project site in India.",
+    "Browse MaxBeton's catalog of construction equipment for sale & rent. Excavators, cranes, loaders & more—perfect for any project site in India. Fast delivery",
   keywords: [
     "MaxBeton products",
     "buy construction equipment",
