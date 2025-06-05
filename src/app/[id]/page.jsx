@@ -1,40 +1,45 @@
 import ProductDetailPage from './ProductsDetails'
 
 export const metadata = {
-  title: "Product Details | MaxBeton Construction Equipment",
-  description: "View detailed specifications, features, and availability of MaxBeton's high-performance construction machinery. Available for both sale and rental.",
+  title: "Buy Construction Equipment Online | MaxBeton Product Details",
+  description:
+    "Explore detailed specs, features, and pricing for MaxBeton's top-quality construction machinery. Buy excavators, loaders, and more online with nationwide delivery.",
   keywords: [
-    "construction equipment details",
-    "MaxBeton product info",
-    "heavy machinery specifications",
-    "equipment rental features",
-    "construction machinery overview"
+    "buy construction equipment online",
+    "product details construction machinery",
+    "excavator specs",
+    "heavy machinery for sale",
+    "MaxBeton product specifications",
+    "construction equipment pricing",
+    "equipment features",
+    "online construction machinery store"
   ],
   openGraph: {
-    title: "MaxBeton Equipment Details | Specs & Availability",
-    description: "Discover in-depth information about our construction equipment—reliable machines for any job site.",
-    url: "https://www.maxbeton.in",
+    title: "MaxBeton Equipment Details | Buy Online with Specs & Pricing",
+    description:
+      "Get complete details, specs, and images of high-performance construction equipment. Purchase online with confidence at MaxBeton.",
+    url: "https://www.maxbeton.vercel.app",
     siteName: "MaxBeton",
     images: [
       {
         url: "https://images.unsplash.com/photo-1581093448795-ff3e4f67c92b",
         width: 1200,
         height: 630,
-        alt: "Detailed view of MaxBeton construction equipment"
+        alt: "Construction equipment product detail view"
       }
     ],
     type: "article"
   },
   twitter: {
     card: "summary_large_image",
-    title: "MaxBeton Product Details | Durable & Powerful Equipment",
-    description: "Explore specs, images, and pricing info for construction machines offered by MaxBeton.",
+    title: "Construction Equipment Specs & Pricing | MaxBeton",
+    description:
+      "See specifications, images, and prices for durable construction equipment. Shop online at MaxBeton for nationwide delivery and expert support.",
   },
   alternates: {
     canonical: "https://www.maxbeton.vercel.app"
   }
 };
-
 
 export default function productDetail() {
   return (

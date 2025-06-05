@@ -18,34 +18,36 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: {
-    default: "MaxBeton | Reliable Construction Equipment Rentals & Sales",
+    default: "Buy Construction Equipment Online | MaxBeton",
     template: "%s | MaxBeton",
   },
-  description: "MaxBeton is a leading provider of construction equipment for rent and sale, offering a wide range of machinery to support builders, contractors, and infrastructure projects across India.",
+  description:
+    "Buy construction equipment online from MaxBeton — India’s trusted source for high-performance machinery. Shop excavators, loaders, and more with secure checkout and nationwide delivery.",
   keywords: [
-    "MaxBeton",
-    "construction equipment rental",
-    "construction machinery",
-    "equipment for builders",
-    "excavator rental",
-    "loader hire",
-    "heavy machinery India",
-    "construction tools",
-    "infrastructure equipment",
-    "contractor equipment supply",
+    "buy construction equipment online",
+    "construction machinery for sale",
+    "online equipment store",
+    "excavators for sale",
+    "loaders for sale",
+    "construction equipment India",
+    "MaxBeton equipment",
+    "heavy machinery purchase",
+    "site equipment shop",
+    "infrastructure machinery online",
   ],
   metadataBase: new URL("https://maxbeton.vercel.app"),
   openGraph: {
-    title: "MaxBeton | Reliable Construction Equipment Rentals & Sales",
-    description: "Explore MaxBeton's extensive range of construction machinery available for rent and purchase — trusted by professionals across India.",
+    title: "Buy Construction Equipment Online | MaxBeton",
+    description:
+      "Explore MaxBeton's range of construction equipment available for purchase online. Trusted by 1000+ firms across India. Fast delivery, expert support.",
     url: "https://maxbeton.vercel.app",
     siteName: "MaxBeton",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1603814744247-ca3e77714471", // replace with your actual OG image
+        url: "https://images.unsplash.com/photo-1603814744247-ca3e77714471", // Replace with a real product or homepage banner image
         width: 1200,
         height: 630,
-        alt: "MaxBeton Construction Equipment",
+        alt: "MaxBeton Construction Equipment for Sale",
       },
     ],
     locale: "en_IN",
@@ -53,11 +55,12 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MaxBeton | Reliable Construction Equipment Rentals & Sales",
-    description: "Top-quality construction equipment for rent and sale from MaxBeton. Discover machinery built for performance and reliability.",
-    images: ["https://images.unsplash.com/photo-1603814744247-ca3e77714471"],
+    title: "Buy Construction Equipment Online | MaxBeton",
+    description:
+      "Shop construction machinery online with MaxBeton — top-quality equipment, secure purchase, and fast delivery across India.",
+    images: ["https://maxbeton.vercel.app/og-image.jpg"],
   },
-  authors: [{ name: "MaxBeton Team", url: "https://maxbeton.vercel.app" }],
+  authors: [{ name: "MaxBeton Team", url: "https://maxbeton.vercel.app/about" }],
   creator: "MaxBeton Team",
   robots: {
     index: true,
@@ -72,7 +75,6 @@ export const metadata = {
     },
   },
 };
-
 
 
 export default function RootLayout({ children }) {

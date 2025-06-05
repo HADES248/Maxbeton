@@ -2,18 +2,21 @@ import AboutPageDetails from './AboutPageDetails'
 
 
 export const metadata = {
-  title: "About MaxBeton | Trusted Construction Equipment Partner",
-  description: "Learn about MaxBeton’s mission, values, and expertise in providing top-tier construction machinery for sale and rent across India.",
+  title: "About MaxBeton | Trusted Construction Equipment Experts",
+  description:
+    "Learn more about MaxBeton's mission, leadership, and industry experience. We specialize in supplying high-performance construction equipment across India.",
   keywords: [
     "About MaxBeton",
-    "construction equipment experts",
-    "heavy machinery company",
-    "reliable construction rentals",
-    "equipment suppliers India"
+    "construction equipment company",
+    "heavy machinery supplier India",
+    "trusted construction partner",
+    "MaxBeton mission and values",
+    "equipment supplier team"
   ],
   openGraph: {
-    title: "About MaxBeton | Leading Machinery Experts",
-    description: "Discover our journey, values, and commitment to delivering high-performance construction equipment.",
+    title: "About MaxBeton | Reliable Equipment Suppliers in India",
+    description:
+      "Discover MaxBeton's story, values, and commitment to providing dependable construction machinery solutions nationwide.",
     url: "https://www.maxbeton.vercel.app/about",
     siteName: "MaxBeton",
     images: [
@@ -28,13 +31,15 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "About MaxBeton | Reliable Construction Equipment Experts",
-    description: "Meet the team behind MaxBeton and learn about our dedication to delivering high-quality construction machinery.",
+    title: "About MaxBeton | Leaders in Construction Machinery",
+    description:
+      "Explore the team, values, and vision behind MaxBeton—India’s go-to supplier for durable construction equipment.",
   },
   alternates: {
-    canonical: "https://www.maxbeton.vercel/about"
+    canonical: "https://www.maxbeton.vercel.app/about"
   }
 };
+
 
 
 export default function AboutPage() {

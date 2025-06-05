@@ -1,32 +1,43 @@
 import ContactPage from './ContactForm'
 
 export const metadata = {
-  title: "Contact MaxBeton | Reach Out for Equipment Rentals & Sales",
-  description: "Get in touch with MaxBeton for inquiries about our construction equipment, rentals, and sales. We're here to help you find the right machine for the job.",
+  title: "Contact MaxBeton | Construction Equipment Sales & Rental Support",
+  description:
+    "Reach out to MaxBeton for expert assistance with construction equipment rentals or purchases. Our team is ready to help you choose the right machinery for your project.",
   keywords: [
     "Contact MaxBeton",
     "construction equipment inquiry",
-    "equipment support",
-    "machinery rental contact",
-    "sales support MaxBeton"
+    "buy construction machinery",
+    "rental equipment support",
+    "heavy equipment sales help",
+    "MaxBeton customer service"
   ],
   openGraph: {
-    title: "Contact MaxBeton | We're Here to Help",
-    description: "Have questions or need assistance with equipment? Contact MaxBeton today.",
+    title: "Contact MaxBeton | Request Equipment Info or Support",
+    description:
+      "Get in touch with MaxBeton for any questions regarding our construction machinery, sales options, or rental services. We’re here to support your project.",
     url: "https://www.maxbeton.vercel.app/contact",
     siteName: "MaxBeton",
+    images: [
+      {
+        url: "https://images.unsplash.com/photo-1570129477492-45c003edd2be", // You can change this image if you have a preferred contact-related photo
+        width: 1200,
+        height: 630,
+        alt: "Contact MaxBeton team for equipment inquiries"
+      }
+    ],
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact MaxBeton | Sales & Rental Assistance",
-    description: "Connect with our team for expert help on construction equipment rentals or purchases.",
+    title: "Contact MaxBeton | Expert Guidance for Machinery Sales & Rentals",
+    description:
+      "Need construction equipment or support? Contact MaxBeton to talk with our experienced sales and rental specialists.",
   },
   alternates: {
     canonical: "https://www.maxbeton.vercel.app/contact"
   }
 };
-
 
 export default function Contact() {
   return (

@@ -1,22 +1,26 @@
 import HomePage from "./HomePage";
 
 export const metadata = {
-  title: "MaxBeton | Reliable Construction Equipment Sales & Rentals",
-  description: "MaxBeton offers high-performance construction equipment for every job site. Browse our selection of excavators, cranes, loaders, and more—available for sale or rent.",
+  title: "MaxBeton | Buy Construction Equipment Online in India",
+  description:
+    "MaxBeton is your trusted source to buy construction equipment online in India. Shop excavators, loaders, cranes, and more. Fast delivery, secure checkout, and expert support.",
   keywords: [
-    "MaxBeton",
-    "construction equipment",
-    "heavy machinery",
-    "excavators",
-    "loaders",
-    "bulldozers",
-    "cranes",
-    "construction rentals",
-    "machinery sales"
+    "buy construction equipment online",
+    "construction machinery for sale",
+    "excavators for sale",
+    "cranes for sale",
+    "loaders online",
+    "heavy equipment purchase India",
+    "MaxBeton machinery",
+    "construction equipment store",
+    "online construction equipment",
+    "infrastructure equipment sales",
+    "MaxBeton"
   ],
   openGraph: {
-    title: "MaxBeton | Reliable Construction Equipment Experts",
-    description: "Get powerful and durable machines for your construction needs. MaxBeton supplies premium-grade equipment for rent and sale.",
+    title: "MaxBeton | Shop Construction Equipment Online",
+    description:
+      "Browse and buy premium construction machinery online at MaxBeton. Trusted by 1000+ companies for excavators, loaders, cranes & more.",
     url: "https://www.maxbeton.vercel.app",
     siteName: "MaxBeton",
     images: [
@@ -24,20 +28,22 @@ export const metadata = {
         url: "https://images.unsplash.com/photo-1603814744247-ca3e77714471",
         width: 1200,
         height: 630,
-        alt: "MaxBeton construction equipment on site"
+        alt: "MaxBeton Construction Machinery for Sale"
       }
     ],
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
-    title: "MaxBeton | Construction Equipment for Every Job Site",
-    description: "Explore heavy-duty machinery from MaxBeton. We offer top-tier excavators, loaders, cranes, and more—available for purchase or rental.",
+    title: "Buy Heavy Construction Equipment Online | MaxBeton",
+    description:
+      "Explore a wide range of construction equipment for sale online at MaxBeton. Top quality, reliable service, and quick delivery across India.",
   },
   alternates: {
     canonical: "https://www.maxbeton.vercel.app"
   }
 };
+
 
 export default function Home() {
   return (

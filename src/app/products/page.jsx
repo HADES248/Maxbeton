@@ -1,18 +1,23 @@
 import ProductsPage from "./ProductsPage"
 
 export const metadata = {
-  title: "MaxBeton Products | Construction Equipment for Sale & Rent",
-  description: "Browse MaxBeton's wide range of construction equipment including excavators, cranes, loaders, and more. Available for both sale and rental.",
+  title: "MaxBeton Products | Buy or Rent Construction Equipment Online",
+  description:
+    "Browse MaxBeton's full catalog of construction equipment for sale and rent. Choose from excavators, cranes, loaders, and more—ideal for any project site in India.",
   keywords: [
     "MaxBeton products",
-    "excavators for sale",
-    "cranes for rent",
-    "heavy equipment listings",
-    "construction machinery catalog"
+    "buy construction equipment",
+    "rent excavators online",
+    "cranes for rent India",
+    "construction machinery listings",
+    "heavy equipment for sale",
+    "online equipment rental",
+    "construction tools MaxBeton"
   ],
   openGraph: {
-    title: "MaxBeton Products | Browse Construction Equipment",
-    description: "Explore our catalog of high-quality construction machinery ready for your next project.",
+    title: "MaxBeton | Shop Construction Machinery Online",
+    description:
+      "Explore a wide selection of construction equipment available for sale or rental. MaxBeton delivers reliable machines for every job site.",
     url: "https://www.maxbeton.vercel.app/products",
     siteName: "MaxBeton",
     images: [
@@ -20,15 +25,16 @@ export const metadata = {
         url: "https://storage.googleapis.com/hostinger-horizons-assets-prod/88bcfb3f-12fd-4bc9-b718-5984c3deca52/1a92250ba4931d951bc73645d814a420.png",
         width: 1200,
         height: 630,
-        alt: "Various construction equipment for sale and rent"
+        alt: "Wide selection of MaxBeton construction equipment"
       }
     ],
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Explore MaxBeton Products | Machinery Sales & Rentals",
-    description: "Find the right construction equipment for your needs from our featured listings.",
+    title: "MaxBeton Products | Heavy Equipment for Sale & Rent",
+    description:
+      "Discover top-quality construction machinery from MaxBeton. Shop or rent equipment for all your building needs—fast, affordable, and reliable.",
   },
   alternates: {
     canonical: "https://www.maxbeton.vercel.app/products"
