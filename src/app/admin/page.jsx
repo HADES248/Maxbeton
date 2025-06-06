@@ -25,8 +25,8 @@ const Login = () => {
       const data = await response.json();
 
       if (response.ok) {
-        setUser(data.user);
-        localStorage.setItem("user", JSON.stringify(data.user));
+        setUser(data.username);
+        localStorage.setItem("user", JSON.stringify(data.username));
         showCustomAlert("Login Successful", "success");
         router.push("/admin/dashboard");
       } else {

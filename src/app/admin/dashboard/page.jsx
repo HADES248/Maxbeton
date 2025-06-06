@@ -12,12 +12,17 @@ export default function Dashboard() {
   const { user } = useContext(UserContext);
 
   useEffect(() => {
-    fetchProducts();
-    if (user !== undefined) {
-      setUserLoading(false);
+    // Ensure user context has resolved
+    if (typeof user === 'undefined') return;
+
+    setUserLoading(false);
+
+    if (user) {
+      fetchProducts();
+    } else {
+      setLoading(false); // stop loading if there's no user
     }
   }, [user]);
-
 
   const fetchProducts = async () => {
     try {
@@ -37,7 +42,7 @@ export default function Dashboard() {
     } catch (err) {
       console.error("Failed to fetch data", err);
     } finally {
-      setLoading(false);
+      setLoading(false); // end loading regardless of success or failure
     }
   };
 
