@@ -121,7 +121,7 @@ const ContactPage = () => {
               <h2 className="text-2xl font-bold mb-2">Contact Information</h2>
               {[{ icon: MapPin, title: 'Address', value: address, href: googleMapsUrl },
               { icon: Phone, title: 'Phone', value: phone, href: `tel:${phone}` },
-              { icon: Mail, title: 'Email', value: email, href: `mailto:${email}` },
+              { icon: Mail, title: 'Email', value: email },
               { icon: Clock, title: 'Business Hours', value: 'Mon-Sat: 10:00 AM - 7:00 PM\nSunday: Closed' }].map(({ icon: Icon, title, value, href }) => (
                 <div key={title} className="flex items-start space-x-4 mb-2">
                   <Icon className="h-6 w-6 mt-1 flex-shrink-0" />
