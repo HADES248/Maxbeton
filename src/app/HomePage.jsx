@@ -56,7 +56,7 @@ const HomePage = () => {
           <FeaturedEquipmentSection
             products={featuredProducts.length > 0 ? featuredProducts : products.slice(0, 3)}
           />
-          <AboutPreviewSection imageSrc={aboutPreviewImage} />
+          <AboutPreviewSection/>
         </>
       )}
       <TestimonialsSection />

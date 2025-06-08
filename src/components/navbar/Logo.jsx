@@ -9,11 +9,10 @@ const Logo = () => {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-        className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center"
+        className="w-42 h-14 rounded-lg flex items-center justify-center"
       >
-        <span className="text-white font-bold text-xl">MB</span>
+        <img src="/icon.png" alt="Website Icon" />
       </motion.div>
-      <span className="text-xl font-bold bg-gradient-to-l from-purple-600 to-blue-600 bg-clip-text text-transparent">MaxBeton</span>
     </Link>
   );
 };

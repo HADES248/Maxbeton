@@ -51,12 +51,11 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">MB</span>
-              </div>
-              <span className="text-xl font-bold bg-gradient-to-l from-purple-600 to-blue-600 bg-clip-text text-transparent">MaxBeton</span>
+            <div className="w-42 h-14 rounded-lg flex items-center justify-center"
+            >
+              <img src="/icon.png" alt="Website Icon" />
             </div>
+
             <p className="text-gray-600 text-sm mb-4 pr-4">Providing high-quality construction equipment for projects of all sizes.</p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-500 hover:text-primary transition-colors">

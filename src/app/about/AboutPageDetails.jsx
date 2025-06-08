@@ -32,8 +32,7 @@ const AboutPageDetails = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-gray-600 mb-8"
             >
-              Your reliable partner for high-performance construction machinery, committed to quality, durability, and
-              customer success since 2008.
+              We are a bunch of crazy ones and misfits who want to change the material handling on the work sites and industries through super efficient equipment.
             </motion.p>
           </div>
         </div>
@@ -124,14 +123,13 @@ const AboutPageDetails = () => {
 
             {/* Timeline Items */}
             {[
-              { year: "2008", title: "Foundation", description: "MaxBeton founded with a vision to provide superior construction equipment." },
-              { year: "2012", title: "First Excavator Line", description: "Launched our flagship excavator series, setting new industry standards." },
-              { year: "2016", title: "Expansion", description: "Opened our second manufacturing facility and expanded into international markets." },
-              { year: "2020", title: "Innovation Award", description: "Received industry recognition for advancements in sustainable machinery." },
-              { year: "2024", title: "Digital Integration", description: "Introduced advanced telematics and support systems across our product range." },
+              { title: "Foundation", description: "MaxBeton founded with a vision to provide superior construction equipment." },
+              { title: "Innovation", description: "Launch India's most convenient and easy to use electric wheelbarrow model MaxBeton MB500E" },
+              { title: "Expansion", description: "Expanded the product line to self loading 800kg tracked dumper MaxBeton MB800" },
+              { title: "Future is Bright", description: "Plans to launch 1.5ton Ride On Dumper in both diesel and electric options." }
             ].map((item, index) => (
               <motion.div
-                key={item.year}
+                key={item.title}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -160,7 +158,7 @@ const AboutPageDetails = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-20">
+      {/* <section className="py-20">
         <div className="container mx-auto px-4">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Meet Our Team</h2>
@@ -189,7 +187,7 @@ const AboutPageDetails = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

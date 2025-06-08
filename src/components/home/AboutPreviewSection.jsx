@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
-const AboutPreviewSection = ({ imageSrc }) => {
+const AboutPreviewSection = () => {
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
@@ -19,7 +19,18 @@ const AboutPreviewSection = ({ imageSrc }) => {
           >
             <div className="absolute -top-6 -left-6 w-24 h-24 bg-blue-100 rounded-lg opacity-50"></div>
             <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-purple-100 rounded-lg opacity-50"></div>
-            <img src={imageSrc} alt="MaxBeton Equipment Showcase" className="relative rounded-xl shadow-lg object-cover aspect-video" />
+            <div className="relative rounded-xl shadow-lg overflow-hidden aspect-video">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/kyJFSiL87As?loop=1&playlist=kyJFSiL87As&autoplay=1&mute=1&controls=0&modestbranding=1"
+                title="MaxBeton Equipment Showcase"
+                frameBorder="0"
+                allow="autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+
+
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 30 }}
@@ -29,7 +40,7 @@ const AboutPreviewSection = ({ imageSrc }) => {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">About MaxBeton Equipment</h2>
             <p className="text-lg text-gray-600 mb-6">
-               MaxBeton is your trusted partner for high-performance construction equipment. We are committed to providing durable machinery, exceptional service, and reliable support to help you complete your projects efficiently and safely.
+              MaxBeton is your trusted partner for high-performance construction equipment. We are committed to providing durable machinery, exceptional service, and reliable support to help you complete your projects efficiently and safely.
             </p>
             <div className="grid grid-cols-2 gap-6 mb-8">
               <div className="flex items-center space-x-3">
@@ -59,7 +70,7 @@ const AboutPreviewSection = ({ imageSrc }) => {
             </div>
             <Link href="/about">
               <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 text-white">
-                 Learn More About Us
+                Learn More About Us
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
