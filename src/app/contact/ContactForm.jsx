@@ -2,13 +2,12 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { useToast } from '@/components/ui/use-toast';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import showCustomAlert from '@/components/Alert';
 
 const ContactPage = () => {
-  const { toast } = useToast();
 
   const [formData, setFormData] = useState({
     name: '', email: '', phone: '', company: '', message: '', subject: 'General Inquiry',
@@ -20,22 +19,45 @@ const ContactPage = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    console.log('Contact Form Data:', formData);
+  const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast({
-        title: 'Message Sent!',
-        description: "Thank you for contacting MaxBeton. We'll get back to you shortly.",
-      });
-      setFormData({
-        name: '', email: '', phone: '', company: '', message: '', subject: 'General Inquiry',
-      });
-    }, 1500);
-  };
+  const { name, email, message } = formData;
+  if (!name.trim() || !email.trim() || !message.trim()) {
+    showCustomAlert("Missing details. Please fill out the form correctly.", "danger");
+    return;
+  }
+
+  setIsSubmitting(true);
+
+  try {
+    const res = await fetch('/api/send_email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+
+    if (!res.ok) {
+      showCustomAlert("Failed to send Email, please try again", "danger");
+      return;
+    }
+
+    showCustomAlert("Email Sent Successfully! We'll get back to you soon.", "success");
+
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      company: '',
+      message: '',
+      subject: 'General Inquiry',
+    });
+  } catch (error) {
+    showCustomAlert("Failed to Send Email", "danger");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   const address = 'C-159, Naraina Industrial Area Phase I, New Delhi - 110028, India';
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
