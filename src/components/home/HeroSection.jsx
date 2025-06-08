@@ -57,7 +57,14 @@ const HeroSection = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl transform rotate-3"></div>
             {/* Use img-replace for new images */}
-            <img alt="Various construction equipment on site" className="relative rounded-3xl shadow-xl" src="https://images.unsplash.com/photo-1603814744247-ca3e77714471" />
+            <video
+              className="relative rounded-3xl shadow-xl"
+              src="/Home-Video.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+            />
           </motion.div>
         </div>
       </div>

@@ -21,9 +21,11 @@ const FeaturedEquipmentSection = ({ products }) => {
   };
 
   const icons = [
-    <HardHat className="h-10 w-10 text-blue-600" />,
-    <Layers className="h-10 w-10 text-purple-600" />,
-    <Truck className="h-10 w-10 text-indigo-600" />,
+
+    // <Layers className="h-10 w-10 text-purple-600" />,
+    <Truck className="h-10 w-10 text-cyan-600" />,
+    <Truck className="h-10 w-10 text-purple-600" />,
+    <HardHat className="h-10 w-10 text-cyan-600" />,
   ];
 
   return (
@@ -36,7 +38,7 @@ const FeaturedEquipmentSection = ({ products }) => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Equipment</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Top Tier Equipment</h2>
           <p className="text-md text-gray-600 max-w-3xl mx-auto">
             Discover some of our top-performing construction machinery.
           </p>

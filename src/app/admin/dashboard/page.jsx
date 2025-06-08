@@ -12,27 +12,15 @@ export default function Dashboard() {
   const { user } = useContext(UserContext);
 
   useEffect(() => {
-    // Ensure user context has resolved
     if (typeof user === 'undefined') return;
-
     setUserLoading(false);
-
-    if (user) {
-      fetchProducts();
-    } else {
-      setLoading(false); // stop loading if there's no user
-    }
+    if (user) fetchProducts();
+    else setLoading(false);
   }, [user]);
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch("/api/products", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
+      const response = await fetch("/api/products");
       if (response.ok) {
         const data = await response.json();
         setProducts(data.products);
@@ -42,20 +30,13 @@ export default function Dashboard() {
     } catch (err) {
       console.error("Failed to fetch data", err);
     } finally {
-      setLoading(false); // end loading regardless of success or failure
+      setLoading(false);
     }
   };
 
   const [form, setForm] = useState({
-    id: '',
-    title: '',
-    category: '',
-    description: '',
-    brochureUrl: '',
-    metaKeywords: '',
-    specifications: [],
-    images: [],
-    videoUrls: []
+    id: '', title: '', category: '', description: '', brochureUrl: '',
+    metaKeywords: '', specifications: [], images: [], videoUrls: []
   });
 
   const handleChange = (e) => {
@@ -74,14 +55,25 @@ export default function Dashboard() {
   };
 
   const removeSpecField = (index) => {
-    const newSpecs = form.specifications.filter((_, i) => i !== index);
-    setForm({ ...form, specifications: newSpecs });
+    setForm({ ...form, specifications: form.specifications.filter((_, i) => i !== index) });
+  };
+
+  const convertToEmbedUrl = (url) => {
+    try {
+      const youtubeMatch = url.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]{11})/);
+      if (youtubeMatch) {
+        return `https://www.youtube.com/embed/${youtubeMatch[1]}`;
+      }
+      return url; // return original if not a YouTube link
+    } catch {
+      return url;
+    }
   };
 
   const handleVideoChange = (index, field, value) => {
     const updatedVideos = [...form.videoUrls];
     if (!updatedVideos[index]) updatedVideos[index] = { url: '', title: '' };
-    updatedVideos[index][field] = value ?? '';
+    updatedVideos[index][field] = field === 'url' ? convertToEmbedUrl(value ?? '') : value ?? '';
     setForm({ ...form, videoUrls: updatedVideos });
   };
 
@@ -90,8 +82,7 @@ export default function Dashboard() {
   };
 
   const removeVideoField = (index) => {
-    const updatedVideos = form.videoUrls.filter((_, i) => i !== index);
-    setForm({ ...form, videoUrls: updatedVideos });
+    setForm({ ...form, videoUrls: form.videoUrls.filter((_, i) => i !== index) });
   };
 
   const handleImageUploadSuccess = (result) => {
@@ -103,15 +94,11 @@ export default function Dashboard() {
   };
 
   const handleBrochureUploadSuccess = (result) => {
-    const uploadedBrochure = result.info.secure_url;
-    console.log(result.info.secure_url);
-    setForm((prev) => ({ ...prev, brochureUrl: uploadedBrochure }));
+    setForm((prev) => ({ ...prev, brochureUrl: result.info.secure_url }));
   };
 
   const removeImage = (index) => {
-    const updatedImages = form.images.filter((_, i) => i !== index);
-    console.log(updatedImages.url);
-    setForm({ ...form, images: updatedImages });
+    setForm({ ...form, images: form.images.filter((_, i) => i !== index) });
   };
 
   const addProduct = async () => {
@@ -119,28 +106,21 @@ export default function Dashboard() {
       showCustomAlert('Missing Key Attributes', 'warning');
       return;
     }
-
     try {
       const response = await fetch("/api/add", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ productData: form }),
       });
-
       if (response.ok) {
         fetchProducts();
         resetForm();
         showCustomAlert("Product Added Successfully!", "success");
-      } else if (!response.ok) {
-        if (response.status === 409) {
-          showCustomAlert("The Product Already Exists!", "danger");
-        } else {
-          showCustomAlert("Failed to Add Product", "danger");
-        }
+      } else if (response.status === 409) {
+        showCustomAlert("The Product Already Exists!", "danger");
+      } else {
+        showCustomAlert("Failed to Add Product", "danger");
       }
-
     } catch (err) {
       console.error("Error adding product:", err);
     }
@@ -150,9 +130,7 @@ export default function Dashboard() {
     try {
       const response = await fetch("/api/delete", {
         method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id })
       });
       if (response.ok) {
@@ -187,22 +165,17 @@ export default function Dashboard() {
     try {
       const response = await fetch("/api/update", {
         method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ productData: form, id: productId }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ productData: form, id: productId })
       });
-
       if (response.ok) {
         await fetchProducts();
         resetForm();
         showCustomAlert("Product Updated Successfully", "success");
-      } else if (!response.ok) {
-        if (response.status === 409) {
-          showCustomAlert("This Product Does not Exist, please Add it first", "danger");
-        } else {
-          showCustomAlert("Failed to update Product", "danger");
-        }
+      } else if (response.status === 409) {
+        showCustomAlert("This Product Does not Exist, please Add it first", "danger");
+      } else {
+        showCustomAlert("Failed to update Product", "danger");
       }
     } catch (error) {
       console.error("Error updating product:", error);
@@ -217,7 +190,7 @@ export default function Dashboard() {
     window.location.href = '/';
     localStorage.removeItem('user');
     showCustomAlert("Logged Out Successfully", "success");
-  }
+  };
   return (
     userLoading ? (
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-white">

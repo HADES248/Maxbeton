@@ -6,10 +6,8 @@ import { useToast } from '@/components/ui/use-toast';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { useTranslation } from 'react-i18next';
 
 const ContactPage = () => {
-  const { t } = useTranslation();
   const { toast } = useToast();
 
   const [formData, setFormData] = useState({
@@ -30,8 +28,8 @@ const ContactPage = () => {
     setTimeout(() => {
       setIsSubmitting(false);
       toast({
-        title: t('Message Sent!'),
-        description: t("Thank you for contacting MaxBeton. We'll get back to you shortly."),
+        title: 'Message Sent!',
+        description: "Thank you for contacting MaxBeton. We'll get back to you shortly.",
       });
       setFormData({
         name: '', email: '', phone: '', company: '', message: '', subject: 'General Inquiry',
@@ -50,11 +48,11 @@ const ContactPage = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 text-center max-w-4xl">
           <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-4xl md:text-5xl font-bold mb-6">
-            {t('Contact Us')} <span className="bg-gradient-to-l from-purple-600 to-blue-600 bg-clip-text text-transparent">
+            {'Contact Us'} <span className="bg-gradient-to-l from-purple-600 to-blue-600 bg-clip-text text-transparent">
               MaxBeton</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="text-xl text-gray-600">
-            {t('Ready to discuss your project or need a quote? Reach out to our team.')}
+            Ready to discuss your project or need a quote? Reach out to our team for any <b>General Inquiry, Quote Request, Product Information, Support Request, Partnership with Us</b>, or Other concerns — we are here to help.
           </motion.p>
         </div>
       </section>

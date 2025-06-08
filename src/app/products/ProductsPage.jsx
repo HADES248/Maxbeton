@@ -107,7 +107,7 @@ const ProductsPage = () => {
                   className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex w-full ${viewMode === 'grid' ? 'flex-col' : 'flex-row'}`}
                 >
                   <div className={viewMode === 'grid' ? 'h-60' : 'h-48 w-full'}>
-                    <img className="w-full h-full object-cover" alt={product.images[0].alt} src={product.images[0].url} />
+                    <img className="w-full h-full object-cover" alt={product.images?.[0]?.alt} src={product.images?.[0]?.url} />
                   </div>
                   <div className={`p-6 flex flex-col flex-grow ${viewMode === 'list' ? 'flex-1' : ''}`}>
                     <h3 className="text-xl font-semibold mb-2">{product.title}</h3>
