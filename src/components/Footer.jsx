@@ -35,7 +35,6 @@ const Footer = () => {
     getProducts();
   }, []);
 
-
   const address = 'C-159, Naraina Industrial Area Phase I, New Delhi - 110028, India';
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
   const phone = '+91-96504 41666';
@@ -51,8 +50,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           <div className="lg:col-span-2">
-            <div className="w-42 h-14 rounded-lg flex items-center justify-center"
-            >
+            <div className="w-42 h-14 rounded-lg flex items-center justify-center">
               <img src="/icon.png" alt="Website Icon" />
             </div>
 
@@ -74,10 +72,9 @@ const Footer = () => {
           </div>
 
           {loading ? (
-            <div className="text-center text-gray-500 text-sm py-10">Loading products...</div>
+            <div className="text-center text-gray-500 text-sm py-10 col-span-full">Loading products...</div>
           ) : (
-            <>
-              {/* Products Column 1 */}
+            <div className="md:col-span-1 lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 md:gap-8">
               <div>
                 <h3 className="text-lg font-semibold mb-4">Products</h3>
                 <ul className="space-y-2">
@@ -91,9 +88,8 @@ const Footer = () => {
                 </ul>
               </div>
 
-              {/* Products Column 2 */}
               <div>
-                <h3 className="text-lg font-semibold mb-4">&nbsp;</h3>
+                <h3 className="text-lg font-semibold mb-4 hidden sm:block md:invisible">&nbsp;</h3>
                 <ul className="space-y-2">
                   {secondColumnProducts.map((product) => (
                     <li key={product._id}>
@@ -104,9 +100,9 @@ const Footer = () => {
                   ))}
                 </ul>
               </div>
-            </>
+            </div>
           )}
-          {/* Contact Section */}
+
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-3">

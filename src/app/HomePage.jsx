@@ -41,8 +41,7 @@ const HomePage = () => {
 
   const featuredProductIds = ['68383f5f06d5c4b4b79057ef', '68383c8a06d5c4b4b79057e0', '68383dc206d5c4b4b79057e7'];
   const featuredProducts = products.filter((p) => featuredProductIds.includes(p._id));
-  console.log(featuredProducts);
-  const aboutPreviewImage = 'https://res.cloudinary.com/dhofqccou/image/upload/v1749361715/djejsu0ctmqtbwetuh4s.png';
+  // const aboutPreviewImage = 'https://res.cloudinary.com/dhofqccou/image/upload/v1749361715/djejsu0ctmqtbwetuh4s.png';
 
   return (
     <div>

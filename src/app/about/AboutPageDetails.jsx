@@ -68,43 +68,37 @@ const AboutPageDetails = () => {
                 </li>
               </ul>
             </motion.div>
-            <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }}>
-              <img
-                alt="Diverse team collaborating in a modern office"
-                className="relative rounded-3xl shadow-xl"
-                src="https://images.unsplash.com/photo-1538688554366-621d446302aa"
-              />
-            </motion.div>
+            <div className="container mx-auto px-4 text-center mt-24">
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-4xl md:text-4xl font-bold mb-6"
+              >
+                Our Blog
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-2xl text-gray-600 max-w-2xl mx-auto mb-8"
+              >
+                Stay updated with the latest trends, insights, and innovations in the construction equipment industry.
+              </motion.p>
+              <motion.a
+                href="https://inumac.beehiiv.com/"
+                target='_blank'
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.4 }}
+                className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 group text-white py-3 px-6 rounded-lg"
+              >
+                Visit Our Blog
+              </motion.a>
+            </div>
           </div>
         </div>
-        <div className="container mx-auto px-4 text-center mt-24">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-4xl font-bold mb-6"
-          >
-            Our Blog
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-gray-600 max-w-2xl mx-auto mb-8"
-          >
-            Stay updated with the latest trends, insights, and innovations in the construction equipment industry.
-          </motion.p>
-          <motion.a
-            href="https://inumac.beehiiv.com/"
-            target='_blank'
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, delay: 0.4 }}
-            className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 group text-white py-3 px-6 rounded-lg"
-          >
-            Visit Our Blog
-          </motion.a>
-        </div>
+
       </section>
 
       <section className="py-20 bg-gray-50">

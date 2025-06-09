@@ -19,22 +19,28 @@ const TestimonialsSection = () => {
 
   const testimonials = [
     {
-      name: "John Davis",
-      position: "Project Manager, BuildCorp",
+      name: "General Manager (Plant & Machinery)",
+      position: "Kalpataru Group, Mumbai",
       image: "Construction project manager in hard hat",
-      quote: "The excavators from MaxBeton are workhorses. They've significantly improved our site efficiency. Great reliability and support."
+      quote: "The MaxBeton team is available to assist, day or night, whenever we need them. Their ability to strategically source materials has been a terrific benefit to us and it is appreciated."
     },
     {
-      name: "Maria Garcia",
-      position: "Lead Architect, DesignWorks",
+      name: "Addl. GM (Plant & Machinery) ",
+      position: "Shapoorji Pallonji Group, Mumbai",
       image: "Female architect reviewing blueprints",
-      quote: "MaxBeton's range of loaders provided the flexibility we needed for a complex material handling project. Their team offered excellent advice."
+      quote: "MaxBeton machines address a niche in the market which is not serviced by anyone else. Their machines are high quality workhorses with technical superiority and handle tough conditions with ease. "
     },
     {
-      name: "Robert Smith",
-      position: "Site Supervisor, InfraBuild",
+      name: "Cluster Head, North",
+      position: "L&T Ltd., Construction, Chennai",
+      image: "business meetings",
+      quote: "The MaxBeton team is professional and organized in their approach and have helped us many times by organizing the right machinery at critical times."
+    },
+    {
+      name: "Vice President",
+      position: "ATS Group, Delhi NCR",
       image: "Construction site supervisor giving instructions",
-      quote: "We switched to MaxBeton bulldozers last year and haven't looked back. Powerful machines that handle tough conditions with ease."
+      quote: "We've been dealing with the company for over 10 years. Excellent service, the people are knowledgeable, and professional. They also have competitive pricing and prompt order fulfillment and delivery."
     }
   ];
 
@@ -59,7 +65,7 @@ const TestimonialsSection = () => {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
         >
           {testimonials.map((testimonial, index) => (
             <motion.div
@@ -68,7 +74,7 @@ const TestimonialsSection = () => {
               className="testimonial-card bg-white rounded-xl p-8 shadow-lg"
             >
               <div className="flex items-center space-x-4 mb-6">
-                <img  alt={testimonial.name} className="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1697256200022-f61abccad430" />
+                <img alt={testimonial.name} className="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1697256200022-f61abccad430" />
                 <div>
                   <h4 className="font-semibold">{testimonial.name}</h4>
                   <p className="text-sm text-gray-600">{testimonial.position}</p>
