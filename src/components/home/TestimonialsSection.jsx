@@ -35,12 +35,6 @@ const TestimonialsSection = () => {
       position: "L&T Ltd., Construction, Chennai",
       image: "business meetings",
       quote: "The MaxBeton team is professional and organized in their approach and have helped us many times by organizing the right machinery at critical times."
-    },
-    {
-      name: "Vice President",
-      position: "ATS Group, Delhi NCR",
-      image: "Construction site supervisor giving instructions",
-      quote: "We've been dealing with the company for over 10 years. Excellent service, the people are knowledgeable, and professional. They also have competitive pricing and prompt order fulfillment and delivery."
     }
   ];
 

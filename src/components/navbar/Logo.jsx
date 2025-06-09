@@ -9,7 +9,7 @@ const Logo = () => {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-        className="w-42 h-11 rounded-lg flex items-center justify-center"
+        className="mr-10 mt-2 w-50 h-14 rounded-lg flex items-center justify-center"
       >
         <img src="/icon.png" alt="Website Icon" />
       </motion.div>
