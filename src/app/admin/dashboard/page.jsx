@@ -60,12 +60,16 @@ export default function Dashboard() {
 
   const convertToEmbedUrl = (url) => {
     try {
-      const youtubeMatch = url.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]{11})/);
-      if (youtubeMatch) {
-        return `https://www.youtube.com/embed/${youtubeMatch[1]}`;
+      const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/;
+      const match = url.match(regex);
+
+      if (match && match[1]) {
+        return `https://www.youtube.com/embed/${match[1]}`;
       }
-      return url; // return original if not a YouTube link
-    } catch {
+
+      return url; // Not a recognized YouTube URL
+    } catch (error) {
+      console.error("Error parsing URL:", error);
       return url;
     }
   };
