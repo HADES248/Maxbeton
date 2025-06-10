@@ -29,8 +29,8 @@ const Navbar = () => {
   }));
 
   const isActive = (path) => {
-    if (path === 'public/products') {
-      return pathname.startsWith('public/products');
+    if (path === '/products') {
+      return pathname.startsWith('/products');
     }
     return pathname === path;
   };
