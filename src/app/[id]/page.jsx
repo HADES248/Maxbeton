@@ -18,11 +18,11 @@ export const metadata = {
     title: "MaxBeton Equipment Details | Buy Online with Specs & Pricing",
     description:
       "Get complete details, specs, and images of high-performance construction equipment. Purchase online with confidence at MaxBeton.",
-    url: "https://www.maxbeton.vercel.app",
+    url: "https://www.maxbeton.in",
     siteName: "MaxBeton",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1581093448795-ff3e4f67c92b",
+        url: "Home-Image.jpeg",
         width: 1200,
         height: 630,
         alt: "Construction equipment product detail view"
@@ -37,7 +37,7 @@ export const metadata = {
       "See specifications, images, and prices for durable construction equipment. Shop online at MaxBeton for nationwide delivery and expert support.",
   },
   alternates: {
-    canonical: "https://www.maxbeton.vercel.app"
+    canonical: "https://www.maxbeton.in"
   }
 };
 

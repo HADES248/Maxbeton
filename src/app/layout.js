@@ -35,16 +35,16 @@ export const metadata = {
     "site equipment shop",
     "infrastructure machinery online",
   ],
-  metadataBase: new URL("https://maxbeton.vercel.app"),
+  metadataBase: new URL("https://www.maxbeton.in"),
   openGraph: {
     title: "Buy Construction Equipment Online | MaxBeton",
     description:
       "Explore MaxBeton's construction equipment online. Trusted by 1000+ firms across India. Fast delivery & expert support—quality machinery at your fingertips.",
-    url: "https://maxbeton.vercel.app",
+    url: "https://www.maxbeton.in",
     siteName: "MaxBeton",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1603814744247-ca3e77714471", // Replace with a real product or homepage banner image
+        url: "/Home-Image.jpeg",
         width: 1200,
         height: 630,
         alt: "MaxBeton Construction Equipment for Sale",
@@ -58,9 +58,8 @@ export const metadata = {
     title: "Buy Construction Equipment Online | MaxBeton",
     description:
       "Shop construction machinery online with MaxBeton — top-quality equipment, secure purchase, and fast delivery across India.",
-    images: ["https://maxbeton.vercel.app/og-image.jpg"],
   },
-  authors: [{ name: "MaxBeton Team", url: "https://maxbeton.vercel.app/about" }],
+  authors: [{ name: "MaxBeton Team", url: "https://maxbeton.in/about" }],
   creator: "MaxBeton Team",
   robots: {
     index: true,

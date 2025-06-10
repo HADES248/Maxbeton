@@ -18,11 +18,11 @@ export const metadata = {
     title: "MaxBeton | Shop Construction Machinery Online",
     description:
       "Explore a wide selection of construction equipment available for sale or rental. MaxBeton delivers reliable machines for every job site.",
-    url: "https://www.maxbeton.vercel.app/products",
+    url: "https://www.maxbeton.in/products",
     siteName: "MaxBeton",
     images: [
       {
-        url: "https://storage.googleapis.com/hostinger-horizons-assets-prod/88bcfb3f-12fd-4bc9-b718-5984c3deca52/1a92250ba4931d951bc73645d814a420.png",
+        url: "Home-Image.jpeg",
         width: 1200,
         height: 630,
         alt: "Wide selection of MaxBeton construction equipment"
@@ -37,7 +37,7 @@ export const metadata = {
       "Discover top-quality construction machinery from MaxBeton. Shop or rent equipment for all your building needs—fast, affordable, and reliable.",
   },
   alternates: {
-    canonical: "https://www.maxbeton.vercel.app/products"
+    canonical: "https://www.maxbeton.in/products"
   }
 };
 

@@ -16,11 +16,11 @@ export const metadata = {
     title: "Contact MaxBeton | Request Equipment Info or Support",
     description:
       "Get in touch with MaxBeton for any questions regarding our construction machinery, sales options, or rental services. We’re here to support your project.",
-    url: "https://www.maxbeton.vercel.app/contact",
+    url: "https://www.maxbeton.in/contact",
     siteName: "MaxBeton",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1570129477492-45c003edd2be", // You can change this image if you have a preferred contact-related photo
+        url: "Home-Image.jpeg", // You can change this image if you have a preferred contact-related photo
         width: 1200,
         height: 630,
         alt: "Contact MaxBeton team for equipment inquiries"
@@ -35,7 +35,7 @@ export const metadata = {
       "Need construction equipment or support? Contact MaxBeton to talk with our experienced sales and rental specialists.",
   },
   alternates: {
-    canonical: "https://www.maxbeton.vercel.app/contact"
+    canonical: "https://www.maxbeton.in/contact"
   }
 };
 

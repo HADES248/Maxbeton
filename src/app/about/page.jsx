@@ -17,11 +17,11 @@ export const metadata = {
     title: "About MaxBeton | Reliable Equipment Suppliers in India",
     description:
       "Discover MaxBeton's story, values, and commitment to providing dependable construction machinery solutions nationwide.",
-    url: "https://www.maxbeton.vercel.app/about",
+    url: "https://www.maxbeton.in/about",
     siteName: "MaxBeton",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1538688554366-621d446302aa",
+        url: "Home-Image.jpeg",
         width: 1200,
         height: 630,
         alt: "MaxBeton team and construction site"
@@ -36,7 +36,7 @@ export const metadata = {
       "Explore the team, values, and vision behind MaxBeton—India’s go-to supplier for durable construction equipment.",
   },
   alternates: {
-    canonical: "https://www.maxbeton.vercel.app/about"
+    canonical: "https://www.maxbeton.in/about"
   }
 };
 
