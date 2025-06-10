@@ -21,12 +21,12 @@ const CtaSection = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link href="/products">
-              <Button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6">
+              <Button className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 cursor-pointer">
                 Browse Equipment
               </Button>
             </Link>
              <Link href="/contact">
-              <Button variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 py-6">
+              <Button variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 py-6 cursor-pointer">
                 Contact Sales
               </Button>
             </Link>

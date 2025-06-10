@@ -56,15 +56,13 @@ const FeaturedEquipmentSection = ({ products }) => {
               variants={fadeIn}
               className="service-card bg-white rounded-xl p-8 shadow-lg hover:shadow-xl flex flex-col"
             >
-              {/* Updated image section */}
-              <div className="mb-6 inline-block p-4 bg-gray-50 rounded-lg">
+              <div className="mb-6 flex justify-center items-center p-6 rounded-lg">
                 <img
                   src={product.images[0]?.url}
                   alt={product.images[0]?.alt}
-                  className="w-20 h-20 object-contain rounded-md"
+                  className="w-full h-full object-contain rounded-md"
                 />
               </div>
-
               <h3 className="text-xl font-semibold mb-3">{product.title}</h3>
               <p className="text-gray-600 mb-6 flex-grow">{product.description.substring(0, 120)}...</p>
               <Link href={`/${product._id}`} className="mt-auto">
@@ -78,7 +76,7 @@ const FeaturedEquipmentSection = ({ products }) => {
         </motion.div>
         <div className="text-center mt-16">
           <Link href="/products">
-            <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 text-white">
+            <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 text-white cursor-pointer">
               View All Products
             </Button>
           </Link>

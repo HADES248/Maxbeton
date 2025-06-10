@@ -109,7 +109,7 @@ const ContactPage = () => {
                 <textarea id="message" name="message" value={formData.message} onChange={handleChange} required rows={5} className="w-full px-4 py-2 border rounded-md text-sm border-gray-300" />
               </div>
 
-              <Button type="submit" className="w-full text-white" disabled={isSubmitting}>
+              <Button type="submit" className="w-full text-white cursor-pointer" disabled={isSubmitting}>
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>
             </form>

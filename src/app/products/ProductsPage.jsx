@@ -74,7 +74,7 @@ const ProductsPage = () => {
                 variant={viewMode === 'grid' ? 'default' : 'ghost'}
                 size="sm"
                 onClick={() => setViewMode('grid')}
-                className="mr-1"
+                className="mr-1 cursor-pointer"
               >
                 <Grid className="h-4 w-4 mr-2" />
                 Grid
@@ -83,6 +83,7 @@ const ProductsPage = () => {
                 variant={viewMode === 'list' ? 'default' : 'ghost'}
                 size="sm"
                 onClick={() => setViewMode('list')}
+                className="cursor-pointer"
               >
                 <List className="h-4 w-4 mr-2" />
                 List
@@ -101,21 +102,27 @@ const ProductsPage = () => {
               {products.map((product) => (
                 <motion.div
                   key={product._id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex w-full ${viewMode === 'grid' ? 'flex-col' : 'flex-row'}`}
+
+                  className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex ${viewMode === 'grid' ? 'flex-col' : 'flex-row'
+                    }`}
                 >
-                  <div className={viewMode === 'grid' ? 'h-60' : 'h-48 w-full'}>
-                    <img className="w-full h-full object-cover" alt={product.images?.[0]?.alt} src={product.images?.[0]?.url} />
+                  <div className={viewMode === 'grid' ? "h-60" : "h-48 w-64"}>
+                    <img
+                      className="w-full h-full object-cover"
+                      alt={product.images[0].alt}
+                      src={product.images[0].url}
+                    />
                   </div>
                   <div className={`p-6 flex flex-col flex-grow ${viewMode === 'list' ? 'flex-1' : ''}`}>
                     <h3 className="text-xl font-semibold mb-2">{product.title}</h3>
                     <p className="text-gray-600 text-sm mb-4 flex-grow">
-                      {viewMode === 'grid' ? `${product.description.substring(0, 100)}...` : product.description}
+                      {viewMode === 'grid'
+                        ? `${product.description.substring(0, 100)}...`
+                        : product.description
+                      }
                     </p>
                     <Link href={`/${product._id}`}>
-                      <Button className="w-full mt-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 group text-white">
+                      <Button className="w-full mt-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 group text-white cursor-pointer">
                         View Details
                         <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </Button>
